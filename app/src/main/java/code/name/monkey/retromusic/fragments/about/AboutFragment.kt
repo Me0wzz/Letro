@@ -98,7 +98,7 @@ class AboutFragment : Fragment(R.layout.fragment_about), View.OnClickListener {
 
     private fun getAppVersion(): String {
         return try {
-            val isPro = if (App.isProVersion()) "Pro" else "Free"
+            val isPro = "Pro"
             val packageInfo =
                 requireActivity().packageManager.getPackageInfo(requireActivity().packageName, 0)
             "${packageInfo.versionName} $isPro"

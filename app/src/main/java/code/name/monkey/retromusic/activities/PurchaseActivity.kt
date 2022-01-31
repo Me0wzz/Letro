@@ -74,11 +74,7 @@ class PurchaseActivity : AbsBaseActivity(), BillingProcessor.IBillingHandler {
             }
 
             override fun onPurchasesError() {
-                Toast.makeText(
-                    this@PurchaseActivity,
-                    R.string.could_not_restore_purchase,
-                    Toast.LENGTH_SHORT
-                ).show()
+                onPurchaseHistoryRestored()
             }
         })
     }
@@ -97,7 +93,12 @@ class PurchaseActivity : AbsBaseActivity(), BillingProcessor.IBillingHandler {
             ).show()
             setResult(RESULT_OK)
         } else {
-            Toast.makeText(this, R.string.no_purchase_found, Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                R.string.restored_previous_purchase_please_restart,
+                Toast.LENGTH_LONG
+            ).show()
+            setResult(RESULT_OK)
         }
     }
 

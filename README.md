@@ -1,4 +1,4 @@
-# Retro Music Player 🎵
+# Retro Music Player Pro 🎵
 
 [![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
 [![Build Status](https://github.com/RetroMusicPlayer/RetroMusicPlayer/actions/workflows/android.yml/badge.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer/actions/workflows/android.yml)
@@ -7,6 +7,8 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer/blob/master/LICENSE.md)
 [![Twitter Follow](https://img.shields.io/twitter/follow/retromusicapp?style=social)](https://twitter.com/retromusicapp)
 [![Crowdin](https://badges.crowdin.net/retromusicplayer/localized.svg)](https://crowdin.com/project/retromusicplayer)
+
+## 🔓 Retro Music Player w/ Unlocked Pro Features
 
 ## 🆕 Material You Design Music Player for Android music lovers 
 
@@ -80,6 +82,9 @@ favorite songs. No other music player has this feature.
 
 We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
 
+### Download
+You can find build at [Here](https://github.com/Me0wzz/RetroMusicPlayer-Pro/releases)
+
 ### ❓ FAQ
 Please read the FAQ [here](https://retromusic.app/faq.html)
 
@@ -101,3 +106,4 @@ Retro Music Player is released under the GNU General Public License v3.0
 
 >Please note: Retro Music Player is an offline music player app. It
 >doesn't support music downloading or online music streaming.
+
