@@ -83,7 +83,7 @@ favorite songs. No other music player has this feature.
 We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
 
 ### Download
-You can find build at [Here](https://github.com/Me0wzz/RetroMusicPlayer-Pro/releases)
+You can find built-APKs at [Here](https://github.com/Me0wzz/RetroMusicPlayer_Pro/releases)
 
 ### ❓ FAQ
 Please read the FAQ [here](https://retromusic.app/faq.html)
