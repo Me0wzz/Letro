@@ -12,8 +12,8 @@
 
 ## Differences between this repo and [Original](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
 
-- [x] Removed Purchase(IAP) based Activities/Codes
-- [x] Removed Social Tabs / No-needed elements in Settings - About
+* Removed Purchase(IAP) based Activities/Codes
+* Removed Social Tabs / No-needed elements in Settings - About
 
 ## 🆕 Material You Design Music Player for Android music lovers 
 
