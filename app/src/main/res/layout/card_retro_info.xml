@@ -56,33 +56,6 @@
 
 
         <code.name.monkey.retromusic.views.ListItemView
-            android:id="@+id/appRate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appTranslation"
-            app:listItemIcon="@drawable/ic_star"
-            app:listItemSummary="@string/rate_on_google_play_summary"
-            app:listItemTitle="@string/rate_app" />
-
-        <code.name.monkey.retromusic.views.ListItemView
-            android:id="@+id/donateLink"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appRate"
-            app:listItemIcon="@drawable/ic_card_giftcard"
-            app:listItemSummary="@string/donate_summary"
-            app:listItemTitle="@string/donate" />
-
-
-        <code.name.monkey.retromusic.views.ListItemView
             android:id="@+id/bugReportLink"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -90,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/donateLink"
+            app:layout_constraintTop_toBottomOf="@id/appTranslation"
             app:listItemIcon="@drawable/ic_bug_report"
             app:listItemSummary="@string/bug_report_summary"
             app:listItemTitle="@string/report_bug" />

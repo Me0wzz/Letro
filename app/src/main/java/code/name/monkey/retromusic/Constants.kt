@@ -23,7 +23,7 @@ object Constants {
         "https://play.google.com/store/apps/details?id=code.name.monkey.retromusic"
     const val TRANSLATE = "https://crowdin.com/project/retromusicplayer"
     const val WEBSITE = "https://retromusic.app"
-    const val GITHUB_PROJECT = "https://github.com/RetroMusicPlayer/RetroMusicPlayer"
+    const val GITHUB_PROJECT = "https://github.com/Me0wzz/RetroMusicPlayer_Pro"
     const val TELEGRAM_CHANGE_LOG = "https://t.me/retromusiclog"
     const val USER_PROFILE = "profile.jpg"
     const val USER_BANNER = "banner.jpg"
