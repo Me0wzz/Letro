@@ -88,14 +88,7 @@ class NowPlayingScreenPreferenceDialog : DialogFragment(), ViewPager.OnPageChang
             .setCancelable(false)
             .setPositiveButton(R.string.set) { _, _ ->
                 val nowPlayingScreen = values()[viewPagerPosition]
-                if (isNowPlayingThemes(nowPlayingScreen)) {
-                    val result =
-                        "${getString(nowPlayingScreen.titleRes)} theme is Pro version feature."
-                    Toast.makeText(context, result, Toast.LENGTH_SHORT).show()
-                    NavigationUtil.goToProVersion(requireContext())
-                } else {
-                    PreferenceUtil.nowPlayingScreen = nowPlayingScreen
-                }
+                PreferenceUtil.nowPlayingScreen = nowPlayingScreen
             }
             .setView(view)
             .create()
@@ -118,12 +111,8 @@ private class NowPlayingScreenAdapter(private val context: Context) : PagerAdapt
         val binding = PreferenceNowPlayingScreenItemBinding.inflate(inflater, collection, true)
         Glide.with(context).load(nowPlayingScreen.drawableResId).into(binding.image)
         binding.title.setText(nowPlayingScreen.titleRes)
-        if (isNowPlayingThemes(nowPlayingScreen)) {
-            binding.proText.show()
-            binding.proText.setText(R.string.pro)
-        } else {
-            binding.proText.hide()
-        }
+        binding.proText.show()
+        binding.proText.setText(R.string.pro)
         return binding.root
     }
 
@@ -146,8 +135,4 @@ private class NowPlayingScreenAdapter(private val context: Context) : PagerAdapt
     override fun getPageTitle(position: Int): CharSequence {
         return context.getString(values()[position].titleRes)
     }
-}
-
-private fun isNowPlayingThemes(screen: NowPlayingScreen): Boolean {
-    return (screen == Full || screen == Card || screen == Plain || screen == Blur || screen == Color || screen == Simple || screen == BlurCard || screen == Circle || screen == Adaptive) && !App.isProVersion()
 }

@@ -17,7 +17,6 @@
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="com.android.vending.BILLING" />
 
 
     <application
@@ -112,9 +111,7 @@
         <activity android:name=".activities.SettingsActivity" />
         <activity android:name=".activities.tageditor.AlbumTagEditorActivity" />
         <activity android:name=".activities.tageditor.SongTagEditorActivity" />
-        <activity android:name=".activities.SupportDevelopmentActivity" />
         <activity android:name=".activities.LicenseActivity" />
-        <activity android:name=".activities.PurchaseActivity" />
         <activity android:name=".activities.WhatsNewActivity" />
         <activity android:name=".activities.bugreport.BugReportActivity" />
         <activity android:name=".activities.ShareInstagramStory" />

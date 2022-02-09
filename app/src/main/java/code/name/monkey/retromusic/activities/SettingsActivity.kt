@@ -70,9 +70,6 @@ class SettingsActivity : AbsThemeActivity(), ColorCallback, OnThemeChangedListen
         return getString(idRes)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return findNavController(R.id.contentFrame).navigateUp() || super.onSupportNavigateUp()
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {

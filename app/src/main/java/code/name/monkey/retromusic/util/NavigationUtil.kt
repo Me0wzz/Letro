@@ -38,16 +38,6 @@ object NavigationUtil {
         ActivityCompat.startActivity(activity, Intent(activity, LicenseActivity::class.java), null)
     }
 
-    fun goToProVersion(context: Context) {
-        ActivityCompat.startActivity(context, Intent(context, PurchaseActivity::class.java), null)
-    }
-
-    fun goToSupportDevelopment(activity: Activity) {
-        ActivityCompat.startActivity(
-            activity, Intent(activity, SupportDevelopmentActivity::class.java), null
-        )
-    }
-
     fun gotoDriveMode(activity: Activity) {
         ActivityCompat.startActivity(
             activity,

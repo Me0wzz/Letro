@@ -79,13 +79,7 @@ class AlbumCoverStylePreferenceDialog : DialogFragment(),
         return materialDialog(R.string.pref_title_album_cover_style)
             .setPositiveButton(R.string.set) { _, _ ->
                 val coverStyle = values()[viewPagerPosition]
-                if (isAlbumCoverStyle(coverStyle)) {
-                    val result = getString(coverStyle.titleRes) + " theme is Pro version feature."
-                    Toast.makeText(context, result, Toast.LENGTH_SHORT).show()
-                    NavigationUtil.goToProVersion(requireActivity())
-                } else {
-                    PreferenceUtil.albumCoverStyle = coverStyle
-                }
+                PreferenceUtil.albumCoverStyle = coverStyle
             }
             .setView(binding.root)
             .create()
@@ -113,12 +107,8 @@ class AlbumCoverStylePreferenceDialog : DialogFragment(),
 
             Glide.with(context).load(albumCoverStyle.drawableResId).into(binding.image)
             binding.title.setText(albumCoverStyle.titleRes)
-            if (isAlbumCoverStyle(albumCoverStyle)) {
-                binding.proText.show()
-                binding.proText.setText(R.string.pro)
-            } else {
-                binding.proText.hide()
-            }
+            binding.proText.show()
+            binding.proText.setText(R.string.pro)
             return binding.root
         }
 
@@ -150,8 +140,4 @@ class AlbumCoverStylePreferenceDialog : DialogFragment(),
             return AlbumCoverStylePreferenceDialog()
         }
     }
-}
-
-private fun isAlbumCoverStyle(style: AlbumCoverStyle): Boolean {
-    return (!App.isProVersion() && (style == Circle || style == Card || style == FullCard))
 }
