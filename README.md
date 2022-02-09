@@ -1,18 +1,21 @@
 # Retro Music Player Pro 🎵
 
-[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
-[![Build Status](https://github.com/RetroMusicPlayer/RetroMusicPlayer/actions/workflows/android.yml/badge.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer/actions/workflows/android.yml)
-[![Generic badge](https://img.shields.io/badge/minSdkVersion-21-green.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
-[![Generic badge](https://img.shields.io/badge/Download-Google_Play-green.svg)](https://play.google.com/store/apps/details?id=code.name.monkey.retromusic&hl=en_IN)
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer/blob/master/LICENSE.md)
-[![Twitter Follow](https://img.shields.io/twitter/follow/retromusicapp?style=social)](https://twitter.com/retromusicapp)
+[![Generic badge](https://img.shields.io/badge/Download-Github_Releases-blue.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro/releases/latest)
+
+[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro)
+[![Generic badge](https://img.shields.io/badge/minSdkVersion-21-green.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro)
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro/blob/master/LICENSE.md)
 [![Crowdin](https://badges.crowdin.net/retromusicplayer/localized.svg)](https://crowdin.com/project/retromusicplayer)
 
 ## 🔓 Retro Music Player w/ Unlocked Pro Features
 
-## 🆕 Material You Design Music Player for Android music lovers 
+## Differences between this repo and [Original](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
 
-## ⚠ Join [@retromusiclog](https://t.me/retromusiclog) on Telegram for important updates.
+- [x] Removed Purchase(IAP) based Activities/Codes
+- [x] Removed Social Tabs / No-needed elements in Settings - About
+
+## 🆕 Material You Design Music Player for Android music lovers 
 
 ## Screenshots
 ### App Themes
@@ -83,7 +86,7 @@ favorite songs. No other music player has this feature.
 We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
 
 ### Download
-You can find built-APKs at [Here](https://github.com/Me0wzz/RetroMusicPlayer_Pro/releases)
+You can find built-APKs at [Here](https://github.com/Me0wzz/RetroMusicPlayer_Pro/releases/latest)
 
 ### ❓ FAQ
 Please read the FAQ [here](https://retromusic.app/faq.html)
@@ -91,12 +94,8 @@ Please read the FAQ [here](https://retromusic.app/faq.html)
 In any case, you find or notice any bugs please report them by creating an issue or by contacting us in the [Telegram group](https://t.me/retromusicapp).
 If you have any feature suggestions, please create an issue with detailed information or by contacting us in the [Telegram group](https://t.me/retro_music_suggestion).
 
-### 🔗 Social links
-**Telegram:** https://t.me/retromusicapp <br>
-**Instagram:** https://instagram.com/retromusicapp <br>
-**Crowdin**: https://crowdin.com/project/retromusicplayer <br>
-**Pinterest:** https://pinterest.com/retromusicapp <br>
-**Twitter:** https://twitter.com/retromusicapp <br>
+### TODO
+- [ ] Make fully libre
 
 ### 🗂️ License
 
