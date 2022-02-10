@@ -1,18 +1,16 @@
-# Retro Music Player Pro 🎵
+# Letro 🎵
 
-[![Generic badge](https://img.shields.io/badge/Download-Github_Releases-blue.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro/releases/latest)
+[![Generic badge](https://img.shields.io/badge/Download-Github_Releases-blue.svg)](https://github.com/Me0wzz/Letro/releases/latest)
 
-[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro)
-[![Generic badge](https://img.shields.io/badge/minSdkVersion-21-green.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro)
+[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/Me0wzz/Letro)
+[![Generic badge](https://img.shields.io/badge/minSdkVersion-21-green.svg)](https://github.com/Me0wzz/Letro)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/Me0wzz/RetroMusicPlayer_Pro/blob/master/LICENSE.md)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/Me0wzz/Letro/blob/master/LICENSE.md)
 [![Crowdin](https://badges.crowdin.net/retromusicplayer/localized.svg)](https://crowdin.com/project/retromusicplayer)
 
-## 🔓 Retro Music Player w/ Unlocked Pro Features
+## Differences between Letro and [Retro](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
 
-## Differences between this repo and [Original](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
-
-* Removed Purchase(IAP) based Activities/Codes
+* Removed Google Play Libraries [Fully Libre)
 * Removed Social Tabs / No-needed elements in Settings - About
 
 ## 🆕 Material You Design Music Player for Android music lovers 
@@ -86,16 +84,13 @@ favorite songs. No other music player has this feature.
 We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
 
 ### Download
-You can find built-APKs at [Here](https://github.com/Me0wzz/RetroMusicPlayer_Pro/releases/latest)
+You can find built-APKs at [Here](https://github.com/Me0wzz/Letro/releases/latest)
 
 ### ❓ FAQ
 Please read the FAQ [here](https://retromusic.app/faq.html)
 
 In any case, you find or notice any bugs please report them by creating an issue or by contacting us in the [Telegram group](https://t.me/retromusicapp).
 If you have any feature suggestions, please create an issue with detailed information or by contacting us in the [Telegram group](https://t.me/retro_music_suggestion).
-
-### TODO
-- [ ] Make fully libre
 
 ### 🗂️ License
 
