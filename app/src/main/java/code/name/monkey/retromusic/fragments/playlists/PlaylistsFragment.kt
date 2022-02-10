@@ -31,7 +31,6 @@ import code.name.monkey.retromusic.helper.SortOrder.PlaylistSortOrder
 import code.name.monkey.retromusic.interfaces.IPlaylistClickListener
 import code.name.monkey.retromusic.util.PreferenceUtil
 import code.name.monkey.retromusic.util.RetroUtil
-import com.google.android.gms.cast.framework.CastButtonFactory
 import com.google.android.material.transition.MaterialSharedAxis
 
 class PlaylistsFragment :
@@ -89,8 +88,6 @@ class PlaylistsFragment :
         menu.findItem(R.id.action_settings).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
         setUpSortOrderMenu(menu.findItem(R.id.action_sort_order).subMenu)
         MenuCompat.setGroupDividerEnabled(menu, true)
-        //Setting up cast button
-        CastButtonFactory.setUpMediaRouteButton(requireContext(), menu, R.id.action_cast)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -164,20 +164,6 @@
             android:name=".activities.saf.SAFGuideActivity"
             android:theme="@style/Theme.Intro" />
 
-        <activity
-            android:name=".cast.ExpandedControlsActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MainActivity" />
-        </activity>
 
         <provider
             android:name=".misc.GenericFileProvider"

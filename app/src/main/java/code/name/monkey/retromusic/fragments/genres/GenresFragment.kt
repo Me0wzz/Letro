@@ -32,7 +32,6 @@ import code.name.monkey.retromusic.fragments.base.AbsRecyclerViewFragment
 import code.name.monkey.retromusic.interfaces.IGenreClickListener
 import code.name.monkey.retromusic.model.Genre
 import code.name.monkey.retromusic.util.RetroUtil
-import com.google.android.gms.cast.framework.CastButtonFactory
 import com.google.android.material.transition.MaterialSharedAxis
 
 class
@@ -71,8 +70,6 @@ GenresFragment : AbsRecyclerViewFragment<GenreAdapter, LinearLayoutManager>(),
         menu.removeItem(R.id.action_layout_type)
         menu.removeItem(R.id.action_sort_order)
         menu.findItem(R.id.action_settings).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
-        //Setting up cast button
-        CastButtonFactory.setUpMediaRouteButton(requireContext(), menu, R.id.action_cast)
     }
 
     override fun onResume() {

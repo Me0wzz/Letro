@@ -49,7 +49,6 @@ import code.name.monkey.retromusic.helper.MusicPlayerRemote
 import code.name.monkey.retromusic.interfaces.IScrollHelper
 import code.name.monkey.retromusic.model.Song
 import code.name.monkey.retromusic.util.PreferenceUtil
-import com.google.android.gms.cast.framework.CastButtonFactory
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
@@ -212,8 +211,6 @@ class HomeFragment :
             menu,
             ATHToolbarActivity.getToolbarBackgroundColor(binding.toolbar)
         )
-        //Setting up cast button
-        CastButtonFactory.setUpMediaRouteButton(requireContext(), menu, R.id.action_cast)
     }
 
     override fun scrollToTop() {

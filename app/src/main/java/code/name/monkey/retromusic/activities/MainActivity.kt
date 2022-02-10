@@ -24,7 +24,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.contains
 import androidx.navigation.ui.setupWithNavController
 import code.name.monkey.retromusic.*
-import code.name.monkey.retromusic.activities.base.AbsCastActivity
+import code.name.monkey.retromusic.activities.base.AbsSlidingMusicPanelActivity
 import code.name.monkey.retromusic.databinding.SlidingMusicPanelLayoutBinding
 import code.name.monkey.retromusic.extensions.*
 import code.name.monkey.retromusic.helper.MusicPlayerRemote
@@ -41,7 +41,7 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.get
 
-class MainActivity : AbsCastActivity(), OnSharedPreferenceChangeListener {
+class MainActivity : AbsSlidingMusicPanelActivity(), OnSharedPreferenceChangeListener {
     companion object {
         const val TAG = "MainActivity"
         const val EXPAND_PANEL = "expand_panel"

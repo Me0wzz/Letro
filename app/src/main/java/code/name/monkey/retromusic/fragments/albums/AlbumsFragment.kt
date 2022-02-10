@@ -41,7 +41,6 @@ import com.afollestad.materialcab.attached.AttachedCab
 import com.afollestad.materialcab.attached.destroy
 import com.afollestad.materialcab.attached.isActive
 import com.afollestad.materialcab.createCab
-import com.google.android.gms.cast.framework.CastButtonFactory
 
 class AlbumsFragment : AbsRecyclerViewCustomGridSizeFragment<AlbumAdapter, GridLayoutManager>(),
     IAlbumClickListener, ICabHolder {
@@ -168,8 +167,6 @@ class AlbumsFragment : AbsRecyclerViewCustomGridSizeFragment<AlbumAdapter, GridL
         val layoutItem = menu.findItem(R.id.action_layout_type)
         setupLayoutMenu(layoutItem.subMenu)
         setUpSortOrderMenu(menu.findItem(R.id.action_sort_order).subMenu)
-        //Setting up cast button
-        CastButtonFactory.setUpMediaRouteButton(requireContext(), menu, R.id.action_cast)
     }
 
     private fun setUpSortOrderMenu(
