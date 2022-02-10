@@ -7,7 +7,7 @@
     android:background="?attr/colorSurface"
     android:fitsSystemWindows="true">
 
-    <code.name.monkey.retromusic.views.TopAppBarLayout
+    <io.github.me0wzz.music.views.TopAppBarLayout
         android:id="@+id/appBarLayout"
         style="?appBarLayoutStyle"
         android:layout_width="match_parent"

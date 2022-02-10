@@ -25,7 +25,7 @@
         app:behavior_peekHeight="0dp"
         app:gestureInsetBottomIgnored="true"
         app:enableEdgeToEdge="true"
-        app:layout_behavior="code.name.monkey.retromusic.RetroBottomSheetBehavior">
+        app:layout_behavior="io.github.me0wzz.music.RetroBottomSheetBehavior">
 
         <FrameLayout
             android:id="@+id/playerFragmentContainer"
@@ -34,7 +34,7 @@
 
         <fragment
             android:id="@+id/miniPlayerFragment"
-            android:name="code.name.monkey.retromusic.fragments.other.MiniPlayerFragment"
+            android:name="io.github.me0wzz.music.fragments.other.MiniPlayerFragment"
             android:layout_width="match_parent"
             android:layout_height="@dimen/mini_player_height"
             tools:layout="@layout/fragment_mini_player" />
@@ -47,7 +47,7 @@
 
     </FrameLayout>
 
-    <code.name.monkey.retromusic.views.BottomNavigationBarTinted
+    <io.github.me0wzz.music.views.BottomNavigationBarTinted
         android:id="@+id/bottomNavigationView"
         style="@style/Widget.Material3.BottomNavigationView"
         android:layout_width="match_parent"

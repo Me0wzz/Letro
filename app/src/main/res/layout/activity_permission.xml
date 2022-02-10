@@ -7,7 +7,7 @@
     android:background="?attr/colorSurface"
     android:fitsSystemWindows="true">
 
-    <code.name.monkey.retromusic.views.BaselineGridTextView
+    <io.github.me0wzz.music.views.BaselineGridTextView
         android:id="@+id/appNameText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appNameText" />
 
-    <code.name.monkey.retromusic.views.PermissionItem
+    <io.github.me0wzz.music.views.PermissionItem
         android:id="@+id/storagePermission"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         app:permissionTitleNumber="1"
         app:permissionTitleSubTitle="@string/permission_summary" />
 
-    <code.name.monkey.retromusic.views.PermissionItem
+    <io.github.me0wzz.music.views.PermissionItem
         android:id="@+id/audioPermission"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

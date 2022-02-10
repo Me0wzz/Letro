@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="code.name.monkey.retromusic">
+    package="io.github.me0wzz.music">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
@@ -20,7 +20,7 @@
 
 
     <application
-        android:name=".App"
+        android:name="io.github.me0wzz.music.App"
         android:allowBackup="@bool/allowBackup"
         android:configChanges="locale|layoutDirection"
         android:icon="@mipmap/ic_launcher"
@@ -34,7 +34,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
-            android:name=".activities.MainActivity"
+            android:name="io.github.me0wzz.music.activities.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
@@ -108,18 +108,18 @@
                 <data android:mimeType="vnd.android.cursor.dir/audio" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SettingsActivity" />
-        <activity android:name=".activities.tageditor.AlbumTagEditorActivity" />
-        <activity android:name=".activities.tageditor.SongTagEditorActivity" />
-        <activity android:name=".activities.LicenseActivity" />
-        <activity android:name=".activities.WhatsNewActivity" />
-        <activity android:name=".activities.bugreport.BugReportActivity" />
-        <activity android:name=".activities.ShareInstagramStory" />
-        <activity android:name=".activities.DriveModeActivity" />
-        <activity android:name=".activities.PermissionActivity" />
-        <activity android:name=".activities.LockScreenActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.SettingsActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.tageditor.AlbumTagEditorActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.tageditor.SongTagEditorActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.LicenseActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.WhatsNewActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.bugreport.BugReportActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.ShareInstagramStory" />
+        <activity android:name="io.github.me0wzz.music.activities.DriveModeActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.PermissionActivity" />
+        <activity android:name="io.github.me0wzz.music.activities.LockScreenActivity" />
         <activity
-            android:name=".fragments.backup.RestoreActivity"
+            android:name="io.github.me0wzz.music.fragments.backup.RestoreActivity"
             android:excludeFromRecents="false"
             android:exported="true"
             android:label="@string/restore"
@@ -156,17 +156,17 @@
         </activity>
 
         <activity
-            android:name=".appshortcuts.AppShortcutLauncherActivity"
+            android:name="io.github.me0wzz.music.appshortcuts.AppShortcutLauncherActivity"
             android:launchMode="singleInstance"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <activity
-            android:name=".activities.saf.SAFGuideActivity"
+            android:name="io.github.me0wzz.music.activities.saf.SAFGuideActivity"
             android:theme="@style/Theme.Intro" />
 
 
         <provider
-            android:name=".misc.GenericFileProvider"
+            android:name="io.github.me0wzz.music.misc.GenericFileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -186,7 +186,7 @@
         </provider>
 
         <receiver
-            android:name=".service.MediaButtonIntentReceiver"
+            android:name="io.github.me0wzz.music.service.MediaButtonIntentReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
@@ -194,7 +194,7 @@
         </receiver>
 
         <receiver
-            android:name=".appwidgets.BootReceiver"
+            android:name="io.github.me0wzz.music.appwidgets.BootReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -203,7 +203,7 @@
         </receiver>
 
         <receiver
-            android:name=".appwidgets.AppWidgetBig"
+            android:name="io.github.me0wzz.music.appwidgets.AppWidgetBig"
             android:exported="true"
             android:label="@string/app_widget_big_name">
             <intent-filter>
@@ -216,7 +216,7 @@
         </receiver>
 
         <receiver
-            android:name=".appwidgets.AppWidgetClassic"
+            android:name="io.github.me0wzz.music.appwidgets.AppWidgetClassic"
             android:exported="true"
             android:label="@string/app_widget_classic_name">
             <intent-filter>
@@ -228,7 +228,7 @@
                 android:resource="@xml/app_widget_classic_info" />
         </receiver>
         <receiver
-            android:name=".appwidgets.AppWidgetSmall"
+            android:name="io.github.me0wzz.music.appwidgets.AppWidgetSmall"
             android:exported="true"
             android:label="@string/app_widget_small_name">
             <intent-filter>
@@ -240,7 +240,7 @@
                 android:resource="@xml/app_widget_small_info" />
         </receiver>
         <receiver
-            android:name=".appwidgets.AppWidgetText"
+            android:name="io.github.me0wzz.music.appwidgets.AppWidgetText"
             android:exported="true"
             android:label="@string/app_widget_text_name">
             <intent-filter>
@@ -252,7 +252,7 @@
                 android:resource="@xml/app_widget_text" />
         </receiver>
         <receiver
-            android:name=".appwidgets.AppWidgetCard"
+            android:name="io.github.me0wzz.music.appwidgets.AppWidgetCard"
             android:exported="true"
             android:label="@string/app_widget_card_name">
             <intent-filter>
@@ -264,7 +264,7 @@
                 android:resource="@xml/app_widget_card_info" />
         </receiver>
         <receiver
-            android:name=".appwidgets.AppWidgetMD3"
+            android:name="io.github.me0wzz.music.appwidgets.AppWidgetMD3"
             android:exported="true"
             android:label="@string/app_widget_md3_name">
             <intent-filter>
@@ -276,7 +276,7 @@
                 android:resource="@xml/app_widget_md3_info" />
         </receiver>
         <receiver
-            android:name=".appwidgets.AppWidgetCircle"
+            android:name="io.github.me0wzz.music.appwidgets.AppWidgetCircle"
             android:exported="true"
             android:label="@string/app_widget_circle_name">
             <intent-filter>
@@ -289,7 +289,7 @@
         </receiver>
 
         <service
-            android:name=".service.MusicService"
+            android:name="io.github.me0wzz.music.service.MusicService"
             android:enabled="true"
             android:exported="true"
             android:foregroundServiceType="mediaPlayback"
@@ -325,7 +325,7 @@
         <!-- ChromeCast -->
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="code.name.monkey.retromusic.cast.CastOptionsProvider" />
+            android:value="io.github.me0wzz.music.cast.CastOptionsProvider" />
     </application>
 
     <!--

@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <code.name.monkey.retromusic.views.TopAppBarLayout
+    <io.github.me0wzz.music.views.TopAppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="?appBarLayoutStyle"
         android:fitsSystemWindows="true" />
 
-    <code.name.monkey.retromusic.views.insets.InsetsRecyclerView
+    <io.github.me0wzz.music.views.insets.InsetsRecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
