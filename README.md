@@ -56,7 +56,6 @@ favorite songs. No other music player has this feature.
 
 ### 📦 Included Features
 -  Base 3 themes (Clearly White, Kinda Dark and Just Black)
--  Chromecast support
 -  Choose from 10+ now playing themes
 -  Driving Mode
 -  Headset/Bluetooth support
@@ -83,9 +82,6 @@ favorite songs. No other music player has this feature.
 
 We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
 
-### Download
-You can find built-APKs at [Here](https://github.com/Me0wzz/Letro/releases/latest)
-
 ### ❓ FAQ
 Please read the FAQ [here](https://retromusic.app/faq.html)
 
@@ -94,10 +90,10 @@ If you have any feature suggestions, please create an issue with detailed inform
 
 ### 🗂️ License
 
-Retro Music Player is released under the GNU General Public License v3.0
+Letro is released under the GNU General Public License v3.0
 (GPLv3), which can be found [here](LICENSE.md)
 
 
->Please note: Retro Music Player is an offline music player app. It
+>Please note: Letro is an offline music player app. It
 >doesn't support music downloading or online music streaming.
 

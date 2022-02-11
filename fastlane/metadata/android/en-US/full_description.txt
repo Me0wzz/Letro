@@ -1,0 +1,3 @@
+<i>Letro</i> is libre version of Retro Music. Google Play API is removed on this App.
+
+All features from Retro Music Player is available except Chromecast.
