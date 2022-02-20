@@ -14,7 +14,7 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         applicationId "io.github.me0wzz.music"
-        versionCode 10564
+        versionCode 10567
         versionName '5.7.2'
     }
     buildTypes {
