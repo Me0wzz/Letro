@@ -32,6 +32,7 @@ import io.github.me0wzz.music.helper.MusicPlayerRemote
 import io.github.me0wzz.music.util.PreferenceUtil
 import io.github.me0wzz.music.util.color.MediaNotificationProcessor
 
+
 class AdaptivePlaybackControlsFragment :
     AbsPlayerControlsFragment(R.layout.fragment_adaptive_player_playback_controls) {
 

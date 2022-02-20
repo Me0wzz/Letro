@@ -26,6 +26,7 @@ import android.os.PowerManager.WakeLock
 import android.util.Log
 import android.view.KeyEvent
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import io.github.me0wzz.music.BuildConfig
 import io.github.me0wzz.music.service.MusicService.Companion.ACTION_PAUSE
 import io.github.me0wzz.music.service.MusicService.Companion.ACTION_PLAY
@@ -33,7 +34,6 @@ import io.github.me0wzz.music.service.MusicService.Companion.ACTION_REWIND
 import io.github.me0wzz.music.service.MusicService.Companion.ACTION_SKIP
 import io.github.me0wzz.music.service.MusicService.Companion.ACTION_STOP
 import io.github.me0wzz.music.service.MusicService.Companion.ACTION_TOGGLE_PAUSE
-
 
 /**
  * Used to control headset playback.
@@ -169,8 +169,8 @@ class MediaButtonIntentReceiver : BroadcastReceiver() {
         private fun acquireWakeLockAndSendMessage(context: Context, msg: Message, delay: Long) {
             if (wakeLock == null) {
                 val appContext = context.applicationContext
-                val pm = appContext.getSystemService(Context.POWER_SERVICE) as PowerManager
-                wakeLock = pm.newWakeLock(
+                val pm = appContext.getSystemService<PowerManager>()
+                wakeLock = pm?.newWakeLock(
                     PowerManager.PARTIAL_WAKE_LOCK,
                     "RetroMusicApp:Wakelock headset button"
                 )

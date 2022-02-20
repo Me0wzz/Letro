@@ -29,6 +29,7 @@ import android.widget.Toast
 import androidx.annotation.StringDef
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.getSystemService
 import io.github.me0wzz.appthemehelper.ThemeStore
 import io.github.me0wzz.appthemehelper.util.MaterialUtil
 import io.github.me0wzz.appthemehelper.util.TintHelper
@@ -161,9 +162,9 @@ open class BugReportActivity : AbsThemeActivity() {
     }
 
     private fun copyDeviceInfoToClipBoard() {
-        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipboard = getSystemService<ClipboardManager>()
         val clip = ClipData.newPlainText(getString(R.string.device_info), deviceInfo?.toMarkdown())
-        clipboard.setPrimaryClip(clip)
+        clipboard?.setPrimaryClip(clip)
         Toast.makeText(
             this@BugReportActivity,
             R.string.copied_device_info_to_clipboard,

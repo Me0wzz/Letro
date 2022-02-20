@@ -12,14 +12,14 @@
  * See the GNU General Public License for more details.
  *
  */
-package io.github.me0wzz.music.fragments.player.peak
+package io.github.me0wzz.music.fragments.player.peek
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import io.github.me0wzz.appthemehelper.util.ToolbarContentTintHelper
 import io.github.me0wzz.music.R
-import io.github.me0wzz.music.databinding.FragmentPeakPlayerBinding
+import io.github.me0wzz.music.databinding.FragmentPeekPlayerBinding
 import io.github.me0wzz.music.extensions.*
 import io.github.me0wzz.music.fragments.base.AbsPlayerFragment
 import io.github.me0wzz.music.fragments.base.goToAlbum
@@ -33,17 +33,17 @@ import io.github.me0wzz.music.util.color.MediaNotificationProcessor
  * Created by hemanths on 2019-10-03.
  */
 
-class PeakPlayerFragment : AbsPlayerFragment(R.layout.fragment_peak_player) {
+class PeekPlayerFragment : AbsPlayerFragment(R.layout.fragment_peek_player) {
 
-    private lateinit var controlsFragment: PeakPlayerControlFragment
+    private lateinit var controlsFragment: PeekPlayerControlFragment
     private var lastColor: Int = 0
-    private var _binding: FragmentPeakPlayerBinding? = null
+    private var _binding: FragmentPeekPlayerBinding? = null
     private val binding get() = _binding!!
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentPeakPlayerBinding.bind(view)
+        _binding = FragmentPeekPlayerBinding.bind(view)
         setUpPlayerToolbar()
         setUpSubFragments()
         binding.title.isSelected = true
@@ -58,7 +58,7 @@ class PeakPlayerFragment : AbsPlayerFragment(R.layout.fragment_peak_player) {
 
     private fun setUpSubFragments() {
         controlsFragment =
-            childFragmentManager.findFragmentById(R.id.playbackControlsFragment) as PeakPlayerControlFragment
+            childFragmentManager.findFragmentById(R.id.playbackControlsFragment) as PeekPlayerControlFragment
 
         val coverFragment =
             childFragmentManager.findFragmentById(R.id.playerAlbumCoverFragment) as PlayerAlbumCoverFragment
@@ -69,7 +69,7 @@ class PeakPlayerFragment : AbsPlayerFragment(R.layout.fragment_peak_player) {
         binding.playerToolbar.apply {
             inflateMenu(R.menu.menu_player)
             setNavigationOnClickListener { requireActivity().onBackPressed() }
-            setOnMenuItemClickListener(this@PeakPlayerFragment)
+            setOnMenuItemClickListener(this@PeekPlayerFragment)
             ToolbarContentTintHelper.colorizeToolbar(
                 this,
                 colorControlNormal(),

@@ -15,7 +15,6 @@
 package io.github.me0wzz.music.fragments.search
 
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
@@ -26,6 +25,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.IdRes
+import androidx.core.content.getSystemService
 import androidx.core.view.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +34,10 @@ import io.github.me0wzz.appthemehelper.ThemeStore
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.adapter.SearchAdapter
 import io.github.me0wzz.music.databinding.FragmentSearchBinding
-import io.github.me0wzz.music.extensions.*
+import io.github.me0wzz.music.extensions.accentColor
+import io.github.me0wzz.music.extensions.dipToPix
+import io.github.me0wzz.music.extensions.focusAndShowKeyboard
+import io.github.me0wzz.music.extensions.showToast
 import io.github.me0wzz.music.fragments.base.AbsMainActivityFragment
 import io.github.me0wzz.music.util.PreferenceUtil
 import io.github.me0wzz.music.views.addAlpha
@@ -45,7 +48,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.transition.MaterialFadeThrough
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class SearchFragment : AbsMainActivityFragment(R.layout.fragment_search), TextWatcher,
@@ -229,9 +231,9 @@ class SearchFragment : AbsMainActivityFragment(R.layout.fragment_search), TextWa
 
     private fun hideKeyboard(view: View?) {
         if (view != null) {
-            val imm: InputMethodManager =
-                requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
+            val imm =
+                requireContext().getSystemService<InputMethodManager>()
+            imm?.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 

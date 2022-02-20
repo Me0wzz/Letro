@@ -16,7 +16,6 @@ package io.github.me0wzz.music.extensions
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +26,7 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.Px
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import androidx.core.content.getSystemService
 import androidx.core.view.*
 import io.github.me0wzz.appthemehelper.ThemeStore
 import io.github.me0wzz.appthemehelper.util.TintHelper
@@ -95,8 +95,8 @@ fun View.focusAndShowKeyboard() {
                 // We still post the call, just in case we are being notified of the windows focus
                 // but InputMethodManager didn't get properly setup yet.
                 val imm =
-                    context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+                    context.getSystemService<InputMethodManager>()
+                imm?.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
             }
         }
     }

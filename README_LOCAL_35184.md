@@ -26,47 +26,40 @@
 |:---:|:---:|:---:|:---:|:---:|
 | Home | Songs | Albums | Artists | Settings |
 
-### Synced lyrics screen (Over Cover)
-| <img src="screenshots/synced_over_light.jpg" width="200"/>| <img src="screenshots/synced_over_dark.jpg" width="200"/>| <img src="screenshots/synced_over_black.jpg" width="200"/>|
+### Synced lyrics screen
+| <img src="screenshots/synced_light.jpg" width="200"/>| <img src="screenshots/synced_dark.jpg" width="200"/>| <img src="screenshots/synced_black.jpg" width="200"/>|
 |:---:|:---:|:---:|
-| Synced Over Cover light | Synced Over Cover dark | Synced Over Cover black |
+| Synced light | Synced dark | Synced black |
 
-### Synced lyrics screen (Replace Cover)
-| <img src="screenshots/synced_replace_light.jpg" width="200"/>| <img src="screenshots/synced_replace_dark.jpg" width="200"/>| <img src="screenshots/synced_replace_black.jpg" width="200"/>|
-|:---:|:---:|:---:|
-| Synced Replace Cover light | Synced Replace Cover dark | Synced Replace Cover black |
 
-### 10+ Now playing themes
+### 9+ Now playing themes
+ 
 | <img src="screenshots/normal.jpg" width="200"/>	|<img src="screenshots/fit.jpg" width="200"/>|   <img src="screenshots/flat.jpg" width="200"/>  	|    <img src="screenshots/color.jpg" width="200"/> 	|     <img src="screenshots/material.jpg" width="200"/>	|
 |:-----:	|:-----:	|:-----:	|:-----:	|:-----:	|
 | Normal 	| Fit 	| Flat 	| Color 	| Material 	|
 
-| <img src="screenshots/classic.jpg" width="200"/>	|<img src="screenshots/adaptive.jpg" width="200"/>|   <img src="screenshots/blur.jpg" width="200"/>  	|    <img src="screenshots/tiny.jpg" width="200"/> 	|     <img src="screenshots/peek.jpg" width="200"/>	|
+| <img src="screenshots/classic.jpg" width="200"/>	|<img src="screenshots/adaptive.jpg" width="200"/>|   <img src="screenshots/blur.jpg" width="200"/>  	|    <img src="screenshots/tiny.jpg" width="200"/> 	|     <img src="screenshots/peak.jpg" width="200"/>	|
 |:-----:	|:-----:	|:-----:	|:-----:	|:-----:	|
-| Classic 	| Adaptive 	| Blur 	| Tiny 	| Peek 	|
+| Classic 	| Adaptive 	| Blur 	| Tiny 	| Peak 	|
 
-## 🧭 Navigation never made easier 
+### 🧭 Navigation never made easier 
 Self-explanatory interface without overloaded menus.
 
-## 🎨 Colorful
+### 🎨 Colorful
 You can choose between three different main themes: Clearly White, Kinda
 Dark and Just Black for AMOLED displays. Select your favorite accent
 color from a color palette.
 
-## 🏠 Home
+### 🏠 Home
 Where you can view your recently/top played artists, albums and
 favorite songs. No other music player has this feature.
 
-## 📦 Included Features
+### 📦 Included Features
 -  Base 3 themes (Clearly White, Kinda Dark and Just Black)
 -  Choose from 10+ now playing themes
 -  Driving Mode
 -  Headset/Bluetooth support
 -  Music duration filter
--  Android auto support
--  Wallpaper accent picker on Android 8.1+
--  Material You support on Android 12+
--  Monet themed icon support on Android 13+
 -  Folder support - Play songs by folder
 -  Gapless playback
 -  Volume controls
@@ -89,11 +82,11 @@ favorite songs. No other music player has this feature.
 
 We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
 
-## ❓ FAQ
+### ❓ FAQ
 Please read the FAQ [here](https://retromusic.app/faq.html)
 
-In any case, you find or notice any bugs please report them by creating an issue or by contacting us in the [Telegram help & feedback group](https://t.me/retromusicapp).
-If you have any feature suggestions, please create an issue with detailed information or by contacting us in the [Telegram suggestions group](https://t.me/retro_music_suggestion).
+In any case, you find or notice any bugs please report them by creating an issue or by contacting us in the [Telegram group](https://t.me/retromusicapp).
+If you have any feature suggestions, please create an issue with detailed information or by contacting us in the [Telegram group](https://t.me/retro_music_suggestion).
 
 ### 🗂️ License
 

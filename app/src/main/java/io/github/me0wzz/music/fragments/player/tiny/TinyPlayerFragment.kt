@@ -43,6 +43,7 @@ import io.github.me0wzz.music.util.MusicUtil
 import io.github.me0wzz.music.util.PreferenceUtil
 import io.github.me0wzz.music.util.ViewUtil
 import io.github.me0wzz.music.util.color.MediaNotificationProcessor
+import androidx.core.content.getSystemService
 import kotlin.math.abs
 
 class TinyPlayerFragment : AbsPlayerFragment(R.layout.fragment_tiny_player),
@@ -281,7 +282,7 @@ class TinyPlayerFragment : AbsPlayerFragment(R.layout.fragment_tiny_player),
 
         @Suppress("Deprecation")
         private fun vibrate() {
-            val v = requireContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
+            val v = requireContext().getSystemService<Vibrator>()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 v?.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE))
             } else {

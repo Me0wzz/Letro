@@ -16,7 +16,6 @@ package io.github.me0wzz.music.fragments.player.circle
 
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
@@ -28,8 +27,12 @@ import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.widget.SeekBar
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.getSystemService
 import io.github.me0wzz.appthemehelper.ThemeStore
-import io.github.me0wzz.appthemehelper.util.*
+import io.github.me0wzz.appthemehelper.util.ColorUtil
+import io.github.me0wzz.appthemehelper.util.MaterialValueHelper
+import io.github.me0wzz.appthemehelper.util.TintHelper
+import io.github.me0wzz.appthemehelper.util.ToolbarContentTintHelper
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.databinding.FragmentCirclePlayerBinding
 import io.github.me0wzz.music.extensions.*
@@ -64,7 +67,7 @@ class CirclePlayerFragment : AbsPlayerFragment(R.layout.fragment_circle_player),
     private var audioVolumeObserver: AudioVolumeObserver? = null
 
     private val audioManager: AudioManager
-        get() = requireContext().getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        get() = requireContext().getSystemService()!!
 
     private var _binding: FragmentCirclePlayerBinding? = null
     private val binding get() = _binding!!

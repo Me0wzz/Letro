@@ -1,19 +1,16 @@
-# Letro 🎵
+# Retro Music Player 🎵
 
-[![Generic badge](https://img.shields.io/badge/Download-Github_Releases-blue.svg)](https://github.com/Me0wzz/Letro/releases/latest)
-
-[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/Me0wzz/Letro)
-[![Generic badge](https://img.shields.io/badge/minSdkVersion-21-green.svg)](https://github.com/Me0wzz/Letro)
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/Me0wzz/Letro/blob/master/LICENSE.md)
+[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
+[![Build Status](https://github.com/RetroMusicPlayer/RetroMusicPlayer/actions/workflows/android.yml/badge.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer/actions/workflows/android.yml)
+[![Generic badge](https://img.shields.io/badge/minSdkVersion-21-green.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
+[![Generic badge](https://img.shields.io/badge/Download-Google_Play-green.svg)](https://play.google.com/store/apps/details?id=code.name.monkey.retromusic&hl=en_IN)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/RetroMusicPlayer/RetroMusicPlayer/blob/master/LICENSE.md)
+[![Twitter Follow](https://img.shields.io/twitter/follow/retromusicapp?style=social)](https://twitter.com/retromusicapp)
 [![Crowdin](https://badges.crowdin.net/retromusicplayer/localized.svg)](https://crowdin.com/project/retromusicplayer)
 
-## Differences between Letro and [Retro](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
-
-* Removed Google Play Libraries [Fully Libre)
-* Removed Social Tabs / No-needed elements in Settings - About
-
 ## 🆕 Material You Design Music Player for Android music lovers 
+
+## ⚠ Join [@retromusiclog](https://t.me/retromusiclog) on Telegram for important updates.
 
 ## Screenshots
 ### App Themes
@@ -59,6 +56,7 @@ favorite songs. No other music player has this feature.
 
 ## 📦 Included Features
 -  Base 3 themes (Clearly White, Kinda Dark and Just Black)
+-  Chromecast support
 -  Choose from 10+ now playing themes
 -  Driving Mode
 -  Headset/Bluetooth support
@@ -95,12 +93,18 @@ Please read the FAQ [here](https://retromusic.app/faq.html)
 In any case, you find or notice any bugs please report them by creating an issue or by contacting us in the [Telegram help & feedback group](https://t.me/retromusicapp).
 If you have any feature suggestions, please create an issue with detailed information or by contacting us in the [Telegram suggestions group](https://t.me/retro_music_suggestion).
 
-### 🗂️ License
+## 🔗 Social links
+**Telegram:** https://t.me/retromusicapp <br>
+**Instagram:** https://instagram.com/retromusicapp <br>
+**Crowdin**: https://crowdin.com/project/retromusicplayer <br>
+**Pinterest:** https://pinterest.com/retromusicapp <br>
+**Twitter:** https://twitter.com/retromusicapp <br>
 
-Letro is released under the GNU General Public License v3.0
+## 🗂️ License
+
+Retro Music Player is released under the GNU General Public License v3.0
 (GPLv3), which can be found [here](LICENSE.md)
 
 
->Please note: Letro is an offline music player app. It
+>Please note: Retro Music Player is an offline music player app. It
 >doesn't support music downloading or online music streaming.
-

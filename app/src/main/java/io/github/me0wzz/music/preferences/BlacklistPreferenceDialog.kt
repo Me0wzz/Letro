@@ -34,7 +34,6 @@ import io.github.me0wzz.music.extensions.materialDialog
 import io.github.me0wzz.music.providers.BlacklistStore
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.io.File
-import java.util.*
 
 class BlacklistPreference @JvmOverloads constructor(
     context: Context,

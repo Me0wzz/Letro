@@ -19,7 +19,10 @@ import android.media.MediaScannerConnection
 import android.os.Bundle
 import android.os.Environment
 import android.text.Html
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -59,6 +62,7 @@ import io.github.me0wzz.music.model.Song
 import io.github.me0wzz.music.providers.BlacklistStore
 import io.github.me0wzz.music.util.*
 import io.github.me0wzz.music.util.PreferenceUtil.startDirectory
+import io.github.me0wzz.music.util.RetroColorUtil
 import io.github.me0wzz.music.util.ThemedFastScroller.create
 import io.github.me0wzz.music.views.BreadCrumbLayout.Crumb
 import io.github.me0wzz.music.views.BreadCrumbLayout.SelectionCallback
@@ -70,7 +74,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialFadeThrough
-import java.io.*
+import java.io.File
+import java.io.FileFilter
+import java.io.IOException
 import java.lang.ref.WeakReference
 import java.util.*
 

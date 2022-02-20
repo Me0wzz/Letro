@@ -12,7 +12,7 @@
  * See the GNU General Public License for more details.
  *
  */
-package io.github.me0wzz.music.fragments.player.peak
+package io.github.me0wzz.music.fragments.player.peek
 
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -26,7 +26,7 @@ import io.github.me0wzz.appthemehelper.util.ATHUtil
 import io.github.me0wzz.appthemehelper.util.MaterialValueHelper
 import io.github.me0wzz.appthemehelper.util.TintHelper
 import io.github.me0wzz.music.R
-import io.github.me0wzz.music.databinding.FragmentPeakControlPlayerBinding
+import io.github.me0wzz.music.databinding.FragmentPeekControlPlayerBinding
 import io.github.me0wzz.music.extensions.applyColor
 import io.github.me0wzz.music.fragments.base.AbsPlayerControlsFragment
 import io.github.me0wzz.music.helper.MusicPlayerRemote
@@ -38,9 +38,9 @@ import io.github.me0wzz.music.util.color.MediaNotificationProcessor
  * Created by hemanths on 2019-10-04.
  */
 
-class PeakPlayerControlFragment : AbsPlayerControlsFragment(R.layout.fragment_peak_control_player) {
+class PeekPlayerControlFragment : AbsPlayerControlsFragment(R.layout.fragment_peek_control_player) {
 
-    private var _binding: FragmentPeakControlPlayerBinding? = null
+    private var _binding: FragmentPeekControlPlayerBinding? = null
     private val binding get() = _binding!!
 
     override val progressSlider: SeekBar
@@ -69,7 +69,7 @@ class PeakPlayerControlFragment : AbsPlayerControlsFragment(R.layout.fragment_pe
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentPeakControlPlayerBinding.bind(view)
+        _binding = FragmentPeekControlPlayerBinding.bind(view)
         setUpPlayPauseFab()
     }
 

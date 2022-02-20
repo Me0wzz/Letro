@@ -39,6 +39,7 @@ import io.github.me0wzz.music.extensions.*
 import io.github.me0wzz.music.fragments.LibraryViewModel
 import io.github.me0wzz.music.fragments.NowPlayingScreen
 import io.github.me0wzz.music.fragments.NowPlayingScreen.*
+import io.github.me0wzz.music.fragments.player.peek.PeekPlayerFragment
 import io.github.me0wzz.music.fragments.base.AbsPlayerFragment
 import io.github.me0wzz.music.fragments.other.MiniPlayerFragment
 import io.github.me0wzz.music.fragments.player.adaptive.AdaptiveFragment
@@ -54,7 +55,6 @@ import io.github.me0wzz.music.fragments.player.full.FullPlayerFragment
 import io.github.me0wzz.music.fragments.player.gradient.GradientPlayerFragment
 import io.github.me0wzz.music.fragments.player.material.MaterialFragment
 import io.github.me0wzz.music.fragments.player.normal.PlayerFragment
-import io.github.me0wzz.music.fragments.player.peak.PeakPlayerFragment
 import io.github.me0wzz.music.fragments.player.plain.PlainPlayerFragment
 import io.github.me0wzz.music.fragments.player.simple.SimplePlayerFragment
 import io.github.me0wzz.music.fragments.player.tiny.TinyPlayerFragment
@@ -241,7 +241,7 @@ abstract class AbsSlidingMusicPanelActivity : AbsMusicServiceActivity() {
             ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 binding.slidingPanel.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                if (nowPlayingScreen != Peak) {
+                if (nowPlayingScreen != Peek) {
                     val params = binding.slidingPanel.layoutParams as ViewGroup.LayoutParams
                     params.height = ViewGroup.LayoutParams.MATCH_PARENT
                     binding.slidingPanel.layoutParams = params
@@ -454,7 +454,7 @@ abstract class AbsSlidingMusicPanelActivity : AbsMusicServiceActivity() {
             Color -> ColorFragment()
             Gradient -> GradientPlayerFragment()
             Tiny -> TinyPlayerFragment()
-            Peak -> PeakPlayerFragment()
+            Peek -> PeekPlayerFragment()
             Circle -> CirclePlayerFragment()
             Classic -> ClassicPlayerFragment()
             else -> PlayerFragment()
