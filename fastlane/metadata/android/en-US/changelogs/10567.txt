@@ -1,0 +1,4 @@
+- Fixed crash when removing song from Playing queue
+- Fixed lyrics editing crash
+- Fixed shuffle button not working
+- Fixed crash on song deletion
