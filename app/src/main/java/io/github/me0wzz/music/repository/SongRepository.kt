@@ -21,12 +21,14 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.provider.MediaStore.Audio.AudioColumns
 import android.provider.MediaStore.Audio.Media
+import io.github.me0wzz.appthemehelper.util.VersionUtils
 import io.github.me0wzz.music.Constants.IS_MUSIC
 import io.github.me0wzz.music.Constants.baseProjection
 import io.github.me0wzz.music.extensions.getInt
 import io.github.me0wzz.music.extensions.getLong
 import io.github.me0wzz.music.extensions.getString
 import io.github.me0wzz.music.extensions.getStringOrNull
+import io.github.me0wzz.music.glide.GlideApp
 import io.github.me0wzz.music.model.Song
 import io.github.me0wzz.music.providers.BlacklistStore
 import io.github.me0wzz.music.util.PreferenceUtil
@@ -189,7 +191,7 @@ class RealSongRepository(private val context: Context) : SongRepository {
             selectionFinal =
                 selectionFinal + " AND " + Media.DURATION + ">= " + (PreferenceUtil.filterLength * 1000)
         }
-        val uri = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+        val uri = if (VersionUtils.hasQ()) {
             Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
         } else {
             Media.EXTERNAL_CONTENT_URI

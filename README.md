@@ -1,21 +1,42 @@
-# Letro 🎵
+<p align="center">
+  <a href="https://retromusic.app">
+    <img src="app\src\main\ic_launcher-web.png" height="128">
+    <h1 align="center">Letro 🎵</h1>
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/Me0wzz/Letro" style="text-decoration:none" area-label="Android">
+    <img src="https://img.shields.io/badge/Platform-Android-green.svg">
+  </a>
+  <a href="https://github.com/Me0wzz/Letro/actions/workflows/android.yml" style="text-decoration:none" area-label="Build Status">
+    <img src="https://github.com/RetroMusicPlayer/RetroMusicPlayer/actions/workflows/android.yml/badge.svg">
+  </a>
+  <a href="https://github.com/Me0wzz/Letro" style="text-decoration:none" area-label="Min API: 21">
+    <img src="https://img.shields.io/badge/minSdkVersion-21-green.svg">
+  </a>
+  <a href="https://github.com/Me0wzz/Letro/releases/latest" style="text-decoration:none" area-label="Github Releases">
+    <img src="https://img.shields.io/badge/Download-Github_Releases-blue.svg">
+  </a>
+  <a href="https://github.com/Me0wzz/Letro/blob/master/LICENSE.md" style="text-decoration:none" area-label="License: GPL v3">
+    <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg">
+  </a>
+  <a href="https://crowdin.com/project/retromusicplayer" style="text-decoration:none" area-label="Crowdin">
+    <img src="https://badges.crowdin.net/retromusicplayer/localized.svg">
+  </a>
 
-[![Generic badge](https://img.shields.io/badge/Download-Github_Releases-blue.svg)](https://github.com/Me0wzz/Letro/releases/latest)
+</p>
 
-[![Generic badge](https://img.shields.io/badge/Platform-Android-green.svg)](https://github.com/Me0wzz/Letro)
-[![Generic badge](https://img.shields.io/badge/minSdkVersion-21-green.svg)](https://github.com/Me0wzz/Letro)
+___
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/Me0wzz/Letro/blob/master/LICENSE.md)
-[![Crowdin](https://badges.crowdin.net/retromusicplayer/localized.svg)](https://crowdin.com/project/retromusicplayer)
+## 🆕 Material You Design Music Player for Android music lovers 
 
 ## Differences between Letro and [Retro](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
 
 * Removed Google Play Libraries [Fully Libre)
 * Removed Social Tabs / No-needed elements in Settings - About
+___
 
-## 🆕 Material You Design Music Player for Android music lovers 
-
-## Screenshots
+## 📱 Screenshots
 ### App Themes
 | <img src="screenshots/home_light.jpg" width="200"/> | <img src="screenshots/home_dark.jpg" width="200"/> | <img src="screenshots/home_black.jpg" width="200"/> |
 |:---:|:---:|:---:|
@@ -44,6 +65,8 @@
 | <img src="screenshots/classic.jpg" width="200"/>	|<img src="screenshots/adaptive.jpg" width="200"/>|   <img src="screenshots/blur.jpg" width="200"/>  	|    <img src="screenshots/tiny.jpg" width="200"/> 	|     <img src="screenshots/peek.jpg" width="200"/>	|
 |:-----:	|:-----:	|:-----:	|:-----:	|:-----:	|
 | Classic 	| Adaptive 	| Blur 	| Tiny 	| Peek 	|
+
+___
 
 ## 🧭 Navigation never made easier 
 Self-explanatory interface without overloaded menus.
@@ -86,21 +109,15 @@ favorite songs. No other music player has this feature.
 -  Smart Auto Playlists - Recently played, most played and history
 -  Build your playlist on the go
 
-
 We are trying our best to bring you the best user experience. The app is regularly being updated for bug fixes and new features.
 
-## ❓ FAQ
-Please read the FAQ [here](https://retromusic.app/faq.html)
+___
 
-In any case, you find or notice any bugs please report them by creating an issue or by contacting us in the [Telegram help & feedback group](https://t.me/retromusicapp).
-If you have any feature suggestions, please create an issue with detailed information or by contacting us in the [Telegram suggestions group](https://t.me/retro_music_suggestion).
+## 🗂️ License
 
-### 🗂️ License
-
-Letro is released under the GNU General Public License v3.0
+Retro Music Player is released under the GNU General Public License v3.0
 (GPLv3), which can be found [here](LICENSE.md)
 
 
 >Please note: Letro is an offline music player app. It
 >doesn't support music downloading or online music streaming.
-

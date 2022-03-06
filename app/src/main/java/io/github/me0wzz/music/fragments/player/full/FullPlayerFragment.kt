@@ -31,7 +31,6 @@ import io.github.me0wzz.music.fragments.base.goToArtist
 import io.github.me0wzz.music.fragments.player.PlayerAlbumCoverFragment
 import io.github.me0wzz.music.glide.GlideApp
 import io.github.me0wzz.music.glide.RetroGlideExtension
-import io.github.me0wzz.music.glide.RetroMusicColoredTarget
 import io.github.me0wzz.music.helper.MusicPlayerRemote
 import io.github.me0wzz.music.model.Song
 import io.github.me0wzz.music.util.color.MediaNotificationProcessor
@@ -134,12 +133,10 @@ class FullPlayerFragment : AbsPlayerFragment(R.layout.fragment_full) {
         libraryViewModel.artist(MusicPlayerRemote.currentSong.artistId)
             .observe(viewLifecycleOwner) { artist ->
                 if (artist.id != -1L) {
-                    GlideApp.with(requireActivity()).asBitmapPalette().artistImageOptions(artist)
+                    GlideApp.with(requireActivity())
                         .load(RetroGlideExtension.getArtistModel(artist))
-                        .into(object : RetroMusicColoredTarget(binding.artistImage) {
-                            override fun onColorReady(colors: MediaNotificationProcessor) {
-                            }
-                        })
+                        .artistImageOptions(artist)
+                        .into(binding.artistImage)
                 }
 
             }
@@ -151,17 +148,15 @@ class FullPlayerFragment : AbsPlayerFragment(R.layout.fragment_full) {
     }
 
     private fun updateLabel() {
-        (MusicPlayerRemote.playingQueue.size - 1).apply {
-            if (this == (MusicPlayerRemote.position)) {
-                binding.nextSongLabel.setText(R.string.last_song)
-                binding.nextSong.hide()
-            } else {
-                val title = MusicPlayerRemote.playingQueue[MusicPlayerRemote.position + 1].title
-                binding.nextSongLabel.setText(R.string.next_song)
-                binding.nextSong.apply {
-                    text = title
-                    show()
-                }
+        if ((MusicPlayerRemote.playingQueue.size - 1) == (MusicPlayerRemote.position)) {
+            binding.nextSongLabel.setText(R.string.last_song)
+            binding.nextSong.hide()
+        } else {
+            val title = MusicPlayerRemote.playingQueue[MusicPlayerRemote.position + 1].title
+            binding.nextSongLabel.setText(R.string.next_song)
+            binding.nextSong.apply {
+                text = title
+                show()
             }
         }
     }
