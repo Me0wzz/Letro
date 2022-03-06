@@ -15,8 +15,11 @@
 package io.github.me0wzz.music
 
 import android.app.Application
+import android.widget.Toast
+import cat.ereza.customactivityoncrash.config.CaocConfig
 import io.github.me0wzz.appthemehelper.ThemeStore
 import io.github.me0wzz.appthemehelper.util.VersionUtils
+import io.github.me0wzz.music.activities.ErrorActivity
 import io.github.me0wzz.music.appshortcuts.DynamicShortcutManager
 import io.github.me0wzz.music.helper.WallpaperAccentManager
 import org.koin.android.ext.koin.androidContext

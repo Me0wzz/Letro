@@ -44,6 +44,7 @@ import io.github.me0wzz.music.util.PreferenceUtil
 import io.github.me0wzz.music.util.ViewUtil
 import io.github.me0wzz.music.util.color.MediaNotificationProcessor
 import androidx.core.content.getSystemService
+import io.github.me0wzz.appthemehelper.util.VersionUtils
 import kotlin.math.abs
 
 class TinyPlayerFragment : AbsPlayerFragment(R.layout.fragment_tiny_player),
@@ -283,7 +284,7 @@ class TinyPlayerFragment : AbsPlayerFragment(R.layout.fragment_tiny_player),
         @Suppress("Deprecation")
         private fun vibrate() {
             val v = requireContext().getSystemService<Vibrator>()
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (VersionUtils.hasOreo()) {
                 v?.vibrate(VibrationEffect.createOneShot(10, VibrationEffect.DEFAULT_AMPLITUDE))
             } else {
                 v?.vibrate(10)

@@ -55,8 +55,8 @@ import io.github.me0wzz.music.activities.LockScreenActivity
 import io.github.me0wzz.music.appwidgets.*
 import io.github.me0wzz.music.auto.AutoMediaIDHelper
 import io.github.me0wzz.music.auto.AutoMusicProvider
-import io.github.me0wzz.music.glide.BlurTransformation
 import io.github.me0wzz.music.glide.GlideApp
+import io.github.me0wzz.music.glide.BlurTransformation
 import io.github.me0wzz.music.glide.RetroGlideExtension.getSongModel
 import io.github.me0wzz.music.helper.MusicPlayerRemote.isCasting
 import io.github.me0wzz.music.helper.ShuffleHelper.makeShuffleList
@@ -1146,9 +1146,10 @@ class MusicService : MediaBrowserServiceCompat(),
         if (isAlbumArtOnLockScreen) {
             val screenSize = RetroUtil.getScreenSize(this@MusicService)
             val request: RequestBuilder<Bitmap> =
-                GlideApp.with(this@MusicService).asBitmap().songCoverOptions(song).load(
-                    getSongModel(song)
-                )
+                GlideApp.with(this@MusicService)
+                    .asBitmap()
+                    .songCoverOptions(song)
+                    .load(getSongModel(song))
             if (isBlurredAlbumArt) {
                 request.transform(BlurTransformation.Builder(this@MusicService).build())
             }

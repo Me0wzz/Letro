@@ -31,8 +31,10 @@ import android.widget.Toast
 import io.github.me0wzz.appthemehelper.util.MaterialValueHelper
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.databinding.ActivityAlbumTagEditorBinding
+import io.github.me0wzz.music.extensions.appHandleColor
 import io.github.me0wzz.music.extensions.defaultFooterColor
 import io.github.me0wzz.music.extensions.isColorLight
+import io.github.me0wzz.music.extensions.setTint
 import io.github.me0wzz.music.glide.GlideApp
 import io.github.me0wzz.music.glide.palette.BitmapPaletteWrapper
 import io.github.me0wzz.music.model.ArtworkInfo
@@ -45,8 +47,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.target.ImageViewTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.shape.MaterialShapeDrawable
-import io.github.me0wzz.music.extensions.appHandleColor
-import io.github.me0wzz.music.extensions.setTint
 import org.jaudiotagger.tag.FieldKey
 import java.util.*
 

@@ -29,10 +29,9 @@ import io.github.me0wzz.music.databinding.ActivityDriveModeBinding
 import io.github.me0wzz.music.db.toSongEntity
 import io.github.me0wzz.music.extensions.drawAboveSystemBars
 import io.github.me0wzz.music.fragments.base.AbsPlayerControlsFragment
-import io.github.me0wzz.music.glide.BlurTransformation
 import io.github.me0wzz.music.glide.GlideApp
+import io.github.me0wzz.music.glide.BlurTransformation
 import io.github.me0wzz.music.glide.RetroGlideExtension
-import io.github.me0wzz.music.glide.RetroMusicColoredTarget
 import io.github.me0wzz.music.helper.MusicPlayerRemote
 import io.github.me0wzz.music.helper.MusicProgressViewUpdateHelper
 import io.github.me0wzz.music.helper.MusicProgressViewUpdateHelper.Callback
@@ -42,7 +41,6 @@ import io.github.me0wzz.music.model.Song
 import io.github.me0wzz.music.repository.RealRepository
 import io.github.me0wzz.music.service.MusicService
 import io.github.me0wzz.music.util.MusicUtil
-import io.github.me0wzz.music.util.color.MediaNotificationProcessor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -247,14 +245,9 @@ class DriveModeActivity : AbsMusicServiceActivity(), Callback {
         binding.songText.text = song.artistName
 
         GlideApp.with(this)
-            .asBitmapPalette()
-            .songCoverOptions(song)
             .load(RetroGlideExtension.getSongModel(song))
-            .transform(BlurTransformation.Builder(this).build())
-            .into(object : RetroMusicColoredTarget(binding.image) {
-                override fun onColorReady(colors: MediaNotificationProcessor) {
-                }
-            })
+            .songCoverOptions(song).transform(BlurTransformation.Builder(this).build())
+            .into(binding.image)
     }
 
     override fun onUpdateProgressViews(progress: Int, total: Int) {
