@@ -31,6 +31,7 @@ import io.github.me0wzz.music.service.MusicService.Companion.PLAY_STATE_CHANGED
 import io.github.me0wzz.music.service.MusicService.Companion.QUEUE_CHANGED
 import io.github.me0wzz.music.service.MusicService.Companion.REPEAT_MODE_CHANGED
 import io.github.me0wzz.music.service.MusicService.Companion.SHUFFLE_MODE_CHANGED
+import io.github.me0wzz.music.util.PreferenceUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -123,7 +124,10 @@ abstract class AbsMusicServiceActivity : AbsBaseActivity(), IMusicServiceEventLi
             if (entity != null) {
                 repository.updateHistorySong(MusicPlayerRemote.currentSong)
             } else {
-                repository.addSongToHistory(MusicPlayerRemote.currentSong)
+                // Check whether pause history option is ON or OFF
+                if (!PreferenceUtil.pauseHistory) {
+                    repository.addSongToHistory(MusicPlayerRemote.currentSong)
+                }
             }
             val songs = repository.checkSongExistInPlayCount(MusicPlayerRemote.currentSong.id)
             if (songs.isNotEmpty()) {

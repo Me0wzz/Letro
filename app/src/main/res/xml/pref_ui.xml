@@ -40,13 +40,20 @@
             android:summary="@string/pref_summary_suggestions"
             android:title="@string/pref_title_suggestions" />
 
+        <io.github.me0wzz.appthemehelper.common.prefs.supportv7.ATESwitchPreference
+            android:defaultValue="false"
+            android:key="pause_history"
+            android:layout="@layout/list_item_view_switch"
+            android:summary="@string/pref_summary_pause_history"
+            android:title="@string/pref_title_pause_history" />
+
     </io.github.me0wzz.appthemehelper.common.prefs.supportv7.ATEPreferenceCategory>
 
     <io.github.me0wzz.appthemehelper.common.prefs.supportv7.ATEPreferenceCategory
         android:layout="@layout/preference_category_title"
         android:title="@string/pref_header_library">
 
-        <io.github.me0wzz.music.preferences.LibraryPreference
+        <io.github.me0wzz.letro.preferences.LibraryPreference
             android:key="library_categories"
             android:layout="@layout/list_item_view"
             android:summary="@string/pref_summary_library_categories"

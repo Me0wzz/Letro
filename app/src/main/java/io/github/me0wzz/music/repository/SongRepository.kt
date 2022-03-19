@@ -28,11 +28,11 @@ import io.github.me0wzz.music.extensions.getInt
 import io.github.me0wzz.music.extensions.getLong
 import io.github.me0wzz.music.extensions.getString
 import io.github.me0wzz.music.extensions.getStringOrNull
-import io.github.me0wzz.music.glide.GlideApp
+import io.github.me0wzz.music.helper.SortOrder
 import io.github.me0wzz.music.model.Song
 import io.github.me0wzz.music.providers.BlacklistStore
 import io.github.me0wzz.music.util.PreferenceUtil
-import java.util.*
+import java.text.Collator
 
 /**
  * Created by hemanths on 10/08/17.
@@ -68,7 +68,28 @@ class RealSongRepository(private val context: Context) : SongRepository {
             } while (cursor.moveToNext())
         }
         cursor?.close()
-        return songs
+        val collator = Collator.getInstance()
+        return when (PreferenceUtil.songSortOrder) {
+            SortOrder.SongSortOrder.SONG_A_Z -> {
+                songs.sortedWith{ s1, s2 -> collator.compare(s1.title, s2.title) }
+            }
+            SortOrder.SongSortOrder.SONG_Z_A -> {
+                songs.sortedWith{ s1, s2 -> collator.compare(s2.title, s1.title) }
+            }
+            SortOrder.SongSortOrder.SONG_ALBUM -> {
+                songs.sortedWith{ s1, s2 -> collator.compare(s1.albumName, s2.albumName) }
+            }
+            SortOrder.SongSortOrder.SONG_ALBUM_ARTIST -> {
+                songs.sortedWith{ s1, s2 -> collator.compare(s1.albumArtist, s2.albumArtist) }
+            }
+            SortOrder.SongSortOrder.SONG_ARTIST -> {
+                songs.sortedWith{ s1, s2 -> collator.compare(s1.artistName, s2.artistName) }
+            }
+            SortOrder.SongSortOrder.COMPOSER -> {
+                songs.sortedWith{ s1, s2 -> collator.compare(s1.composer, s2.composer) }
+            }
+            else -> songs
+        }
     }
 
     override fun song(cursor: Cursor?): Song {

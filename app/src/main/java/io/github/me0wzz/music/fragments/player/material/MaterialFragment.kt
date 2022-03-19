@@ -14,6 +14,9 @@
  */
 package io.github.me0wzz.music.fragments.player.material
 
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
@@ -22,12 +25,17 @@ import io.github.me0wzz.music.R
 import io.github.me0wzz.music.databinding.FragmentMaterialBinding
 import io.github.me0wzz.music.extensions.colorControlNormal
 import io.github.me0wzz.music.extensions.drawAboveSystemBars
+import io.github.me0wzz.music.extensions.surfaceColor
 import io.github.me0wzz.music.fragments.base.AbsPlayerFragment
 import io.github.me0wzz.music.fragments.player.PlayerAlbumCoverFragment
 import io.github.me0wzz.music.fragments.player.normal.PlayerFragment
 import io.github.me0wzz.music.helper.MusicPlayerRemote
 import io.github.me0wzz.music.model.Song
+import io.github.me0wzz.music.util.PreferenceUtil
+import io.github.me0wzz.music.util.ViewUtil
 import io.github.me0wzz.music.util.color.MediaNotificationProcessor
+import io.github.me0wzz.music.views.DrawableGradient
+
 
 /**
  * @author Hemanth S (h4h13).
@@ -47,6 +55,33 @@ class MaterialFragment : AbsPlayerFragment(R.layout.fragment_material) {
 
     private var _binding: FragmentMaterialBinding? = null
     private val binding get() = _binding!!
+
+    private var valueAnimator: ValueAnimator? = null
+
+    private fun colorize(i: Int) {
+        if (valueAnimator != null) {
+            valueAnimator?.cancel()
+        }
+
+        valueAnimator = ValueAnimator.ofObject(
+            ArgbEvaluator(),
+            surfaceColor(),
+            i
+        )
+        valueAnimator?.addUpdateListener { animation ->
+            if (isAdded) {
+                val drawable = DrawableGradient(
+                    GradientDrawable.Orientation.TOP_BOTTOM,
+                    intArrayOf(
+                        animation.animatedValue as Int,
+                        surfaceColor()
+                    ), 0
+                )
+                binding.colorGradientBackground.background = drawable
+            }
+        }
+        valueAnimator?.setDuration(ViewUtil.RETRO_MUSIC_ANIM_TIME.toLong())?.start()
+    }
 
 
     override fun onShow() {
@@ -74,6 +109,10 @@ class MaterialFragment : AbsPlayerFragment(R.layout.fragment_material) {
             colorControlNormal(),
             requireActivity()
         )
+
+        if (PreferenceUtil.isAdaptiveColor) {
+            colorize(color.backgroundColor)
+        }
     }
 
     override fun toggleFavorite(song: Song) {
