@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="https://retromusic.app">
+  <a href="https://github.com/Me0wzz/Letro">
     <img src="app\src\main\ic_launcher-web.png" height="128">
-    <h1 align="center">Letro 🎵</h1>
+    <h1 align="center">Letro Music 🎵</h1>
   </a>
 </p>
 <p align="center">
@@ -115,7 +115,7 @@ ___
 
 ## 🗂️ License
 
-Retro Music Player is released under the GNU General Public License v3.0
+Letro is released under the GNU General Public License v3.0
 (GPLv3), which can be found [here](LICENSE.md)
 
 

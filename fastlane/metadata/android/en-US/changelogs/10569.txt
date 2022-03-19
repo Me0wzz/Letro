@@ -1,0 +1,4 @@
+- Added an option to share crash report
+- Added options to clear, pause history
+- Optimized search
+- Made sleep timer precise
