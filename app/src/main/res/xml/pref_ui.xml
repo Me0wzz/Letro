@@ -53,7 +53,7 @@
         android:layout="@layout/preference_category_title"
         android:title="@string/pref_header_library">
 
-        <io.github.me0wzz.letro.preferences.LibraryPreference
+        <io.github.me0wzz.music.preferences.LibraryPreference
             android:key="library_categories"
             android:layout="@layout/list_item_view"
             android:summary="@string/pref_summary_library_categories"
