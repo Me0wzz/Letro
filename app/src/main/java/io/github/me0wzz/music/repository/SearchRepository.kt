@@ -16,7 +16,7 @@ package io.github.me0wzz.music.repository
 
 import android.content.Context
 import io.github.me0wzz.music.R
-import io.github.me0wzz.music.db.PlaylistEntity
+import io.github.me0wzz.music.db.PlaylistWithSongs
 import io.github.me0wzz.music.fragments.search.Filter
 import io.github.me0wzz.music.model.Album
 import io.github.me0wzz.music.model.Artist
@@ -93,10 +93,10 @@ class RealSearchRepository(
             }
 
             /** Playlists **/
-            val playlist: List<PlaylistEntity> =
+            val playlist: List<PlaylistWithSongs> =
                 if (filter == Filter.PLAYLISTS || filter == Filter.NO_FILTER) {
-                    roomRepository.playlists().filter { playlist ->
-                        playlist.playlistName.lowercase().contains(searchString.lowercase())
+                    roomRepository.playlistWithSongs().filter { playlist ->
+                        playlist.playlistEntity.playlistName.lowercase().contains(searchString.lowercase())
                     }
                 } else {
                     emptyList()

@@ -62,9 +62,9 @@ import io.github.me0wzz.music.fragments.queue.PlayingQueueFragment
 import io.github.me0wzz.music.helper.MusicPlayerRemote
 import io.github.me0wzz.music.model.CategoryInfo
 import io.github.me0wzz.music.util.PreferenceUtil
-import io.github.me0wzz.music.util.RetroUtil
 import io.github.me0wzz.music.util.ViewUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior.*
+import dev.chrisbanes.insetter.applyInsetter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -144,9 +144,6 @@ abstract class AbsSlidingMusicPanelActivity : AbsMusicServiceActivity() {
         ) { _, insets ->
             windowInsets = insets
             insets
-        }
-        if (RetroUtil.isLandscape()) {
-            binding.slidingPanel.drawAboveSystemBarsWithPadding()
         }
         chooseFragmentForTheme()
         setupSlidingUpPanel()
@@ -357,7 +354,11 @@ abstract class AbsSlidingMusicPanelActivity : AbsMusicServiceActivity() {
         }
     }
 
-    fun setBottomNavVisibility(visible: Boolean, animate: Boolean = false, hideBottomSheet: Boolean = MusicPlayerRemote.playingQueue.isEmpty()) {
+    fun setBottomNavVisibility(
+        visible: Boolean,
+        animate: Boolean = false,
+        hideBottomSheet: Boolean = MusicPlayerRemote.playingQueue.isEmpty()
+    ) {
         if (isInOneTabMode) {
             hideBottomSheet(
                 hide = hideBottomSheet,

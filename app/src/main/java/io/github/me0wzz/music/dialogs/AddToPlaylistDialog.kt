@@ -19,20 +19,15 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.lifecycleScope
 import io.github.me0wzz.music.EXTRA_PLAYLISTS
 import io.github.me0wzz.music.EXTRA_SONG
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.db.PlaylistEntity
-import io.github.me0wzz.music.db.toSongsEntity
 import io.github.me0wzz.music.extensions.colorButtons
 import io.github.me0wzz.music.extensions.extraNotNull
 import io.github.me0wzz.music.extensions.materialDialog
 import io.github.me0wzz.music.fragments.LibraryViewModel
-import io.github.me0wzz.music.fragments.ReloadType.Playlists
 import io.github.me0wzz.music.model.Song
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class AddToPlaylistDialog : DialogFragment() {
@@ -76,14 +71,11 @@ class AddToPlaylistDialog : DialogFragment() {
                 if (which == 0) {
                     showCreateDialog(songs)
                 } else {
-                    lifecycleScope.launch(Dispatchers.IO) {
-                        val songEntities = songs.toSongsEntity(playlistEntities[which - 1])
-                        libraryViewModel.insertSongs(songEntities)
-                        libraryViewModel.forceReload(Playlists)
-                    }
+                    libraryViewModel.addToPlaylist(playlistNames[which], songs)
                 }
                 dialog.dismiss()
             }
+            .setNegativeButton(R.string.action_cancel, null)
             .create().colorButtons()
     }
 
