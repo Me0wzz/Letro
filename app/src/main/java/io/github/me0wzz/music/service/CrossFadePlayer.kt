@@ -7,9 +7,10 @@ import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.media.audiofx.AudioEffect
-import android.net.Uri
 import android.os.PowerManager
+import android.util.Log
 import android.widget.Toast
+import androidx.core.net.toUri
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.helper.MusicPlayerRemote
 import io.github.me0wzz.music.service.AudioFader.Companion.createFadeAnimator
@@ -159,7 +160,7 @@ class CrossFadePlayer(val context: Context) : Playback, MediaPlayer.OnCompletion
         player.setOnPreparedListener(null)
         try {
             if (path.startsWith("content://")) {
-                player.setDataSource(context, Uri.parse(path))
+                player.setDataSource(context, path.toUri())
             } else {
                 player.setDataSource(path)
             }
@@ -296,6 +297,7 @@ class CrossFadePlayer(val context: Context) : Playback, MediaPlayer.OnCompletion
             Toast.LENGTH_SHORT
         )
             .show()
+        Log.e(TAG, what.toString() + extra)
         return false
     }
 
@@ -353,6 +355,10 @@ class CrossFadePlayer(val context: Context) : Playback, MediaPlayer.OnCompletion
 
     override fun setCrossFadeDuration(duration: Int) {
         crossFadeDuration = duration
+    }
+
+    companion object {
+        val TAG: String = CrossFadePlayer::class.java.simpleName
     }
 }
 

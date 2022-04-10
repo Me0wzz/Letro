@@ -20,6 +20,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
+import androidx.core.content.withStyledAttributes
 import io.github.me0wzz.appthemehelper.ThemeStore
 import io.github.me0wzz.appthemehelper.util.ATHUtil
 import io.github.me0wzz.appthemehelper.util.ColorUtil
@@ -38,12 +39,10 @@ class ColorIconsImageView @JvmOverloads constructor(
 
     init {
         // Load the styled attributes and set their properties
-        val attributes =
-            context.obtainStyledAttributes(attrs, R.styleable.ColorIconsImageView, 0, 0)
-        val color =
-            attributes.getColor(R.styleable.ColorIconsImageView_iconBackgroundColor, Color.RED)
-        setIconBackgroundColor(color)
-        attributes.recycle()
+        context.withStyledAttributes(attrs, R.styleable.ColorIconsImageView, 0, 0) {
+            val color = getColor(R.styleable.ColorIconsImageView_iconBackgroundColor, Color.RED)
+            setIconBackgroundColor(color)
+        }
     }
 
     fun setIconBackgroundColor(color: Int) {

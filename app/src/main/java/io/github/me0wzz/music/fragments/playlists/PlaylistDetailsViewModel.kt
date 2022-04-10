@@ -22,24 +22,15 @@ import io.github.me0wzz.music.db.SongEntity
 import io.github.me0wzz.music.interfaces.IMusicServiceEventListener
 import io.github.me0wzz.music.model.Song
 import io.github.me0wzz.music.repository.RealRepository
+import io.github.me0wzz.music.repository.RealRoomRepository
 
 class PlaylistDetailsViewModel(
     private val realRepository: RealRepository,
     private var playlist: PlaylistWithSongs
-) : ViewModel(), IMusicServiceEventListener {
-
-    private val playListSongs = MutableLiveData<List<Song>>()
-
+) : ViewModel() {
     fun getSongs(): LiveData<List<SongEntity>> =
         realRepository.playlistSongs(playlist.playlistEntity.playListId)
 
-    override fun onMediaStoreChanged() {}
-    override fun onServiceConnected() {}
-    override fun onServiceDisconnected() {}
-    override fun onQueueChanged() {}
-    override fun onPlayingMetaChanged() {}
-    override fun onPlayStateChanged() {}
-    override fun onRepeatModeChanged() {}
-    override fun onShuffleModeChanged() {}
-    override fun onFavoriteStateChanged() {}
+    fun playlistExists(): LiveData<Boolean> =
+        realRepository.checkPlaylistExists(playlist.playlistEntity.playListId)
 }

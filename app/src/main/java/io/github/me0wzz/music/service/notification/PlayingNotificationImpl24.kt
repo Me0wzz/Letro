@@ -26,7 +26,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.support.v4.media.session.MediaSessionCompat
 import androidx.core.app.NotificationCompat
-import androidx.core.text.HtmlCompat
+import androidx.core.text.parseAsHtml
 import androidx.media.app.NotificationCompat.MediaStyle
 import io.github.me0wzz.appthemehelper.util.VersionUtils
 import io.github.me0wzz.music.R
@@ -46,7 +46,10 @@ import io.github.me0wzz.music.util.PreferenceUtil
 import io.github.me0wzz.music.util.RetroColorUtil
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @SuppressLint("RestrictedApi")
 class PlayingNotificationImpl24(
@@ -114,27 +117,12 @@ class PlayingNotificationImpl24(
                 .setShowActionsInCompactView(1, 2, 3)
         )
         setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-        if (Build.VERSION.SDK_INT <=
-            Build.VERSION_CODES.O && PreferenceUtil.isColoredNotification
-        ) {
-            this.color = color
-        }
     }
 
     override fun updateMetadata(song: Song, onUpdate: () -> Unit) {
-        setContentTitle(
-            HtmlCompat.fromHtml(
-                "<b>" + song.title + "</b>",
-                HtmlCompat.FROM_HTML_MODE_LEGACY
-            )
-        )
+        setContentTitle(("<b>" + song.title + "</b>").parseAsHtml())
         setContentText(song.artistName)
-        setSubText(
-            HtmlCompat.fromHtml(
-                "<b>" + song.albumName + "</b>",
-                HtmlCompat.FROM_HTML_MODE_LEGACY
-            )
-        )
+        setSubText(("<b>" + song.albumName + "</b>").parseAsHtml())
         val bigNotificationImageSize = context.resources
             .getDimensionPixelSize(R.dimen.notification_big_image_size)
         GlideApp.with(context).asBitmapPalette().songCoverOptions(song)
@@ -181,7 +169,6 @@ class PlayingNotificationImpl24(
                     onUpdate()
                 }
             })
-        updateFavorite(song, onUpdate)
     }
 
     private fun buildPlayAction(isPlaying: Boolean): NotificationCompat.Action {

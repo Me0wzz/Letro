@@ -18,7 +18,6 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.media.audiofx.AudioEffect
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.activities.*
 import io.github.me0wzz.music.activities.bugreport.BugReportActivity
@@ -26,27 +25,27 @@ import io.github.me0wzz.music.helper.MusicPlayerRemote.audioSessionId
 
 object NavigationUtil {
     fun bugReport(activity: Activity) {
-        ActivityCompat.startActivity(
-            activity,
-            Intent(activity, BugReportActivity::class.java),
-            null
+        activity.startActivity(
+            Intent(activity, BugReportActivity::class.java), null
         )
     }
 
     fun goToOpenSource(activity: Activity) {
-        ActivityCompat.startActivity(activity, Intent(activity, LicenseActivity::class.java), null)
+        activity.startActivity(
+            Intent(activity, LicenseActivity::class.java), null
+        )
     }
 
     fun gotoDriveMode(activity: Activity) {
-        ActivityCompat.startActivity(
-            activity,
-            Intent(activity, DriveModeActivity::class.java),
-            null
+        activity.startActivity(
+            Intent(activity, DriveModeActivity::class.java), null
         )
     }
 
     fun gotoWhatNews(activity: Activity) {
-        ActivityCompat.startActivity(activity, Intent(activity, WhatsNewActivity::class.java), null)
+        activity.startActivity(
+            Intent(activity, WhatsNewActivity::class.java), null
+        )
     }
 
     fun openEqualizer(activity: Activity) {

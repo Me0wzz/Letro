@@ -20,6 +20,7 @@ import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageButton
 import android.widget.SeekBar
+import android.widget.TextView
 import io.github.me0wzz.appthemehelper.util.ColorUtil
 import io.github.me0wzz.appthemehelper.util.TintHelper
 import io.github.me0wzz.music.R
@@ -54,6 +55,12 @@ class CardBlurPlaybackControlsFragment :
 
     override val previousButton: ImageButton
         get() = binding.mediaButton.previousButton
+
+    override val songTotalTime: TextView
+        get() = binding.songTotalTime
+
+    override val songCurrentProgress: TextView
+        get() = binding.songCurrentProgress
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

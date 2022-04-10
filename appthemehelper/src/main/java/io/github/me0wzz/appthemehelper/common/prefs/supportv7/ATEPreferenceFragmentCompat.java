@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-
 import io.github.me0wzz.appthemehelper.common.prefs.supportv7.dialogs.ATEListPreferenceDialogFragmentCompat;
 import io.github.me0wzz.appthemehelper.common.prefs.supportv7.dialogs.ATEPreferenceDialogFragment;
 

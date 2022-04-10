@@ -15,15 +15,9 @@
 package io.github.me0wzz.music.fragments.base
 
 import android.os.Bundle
-import android.view.View
 import androidx.annotation.LayoutRes
-import io.github.me0wzz.appthemehelper.util.ColorUtil
-import io.github.me0wzz.appthemehelper.util.VersionUtils
-import io.github.me0wzz.music.R
 import io.github.me0wzz.music.activities.MainActivity
-import io.github.me0wzz.music.extensions.setLightStatusBarAuto
 import io.github.me0wzz.music.extensions.setTaskDescriptionColorAuto
-import io.github.me0wzz.music.extensions.surfaceColor
 import io.github.me0wzz.music.fragments.LibraryViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -37,27 +31,5 @@ abstract class AbsMainActivityFragment(@LayoutRes layout: Int) : AbsMusicService
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
         mainActivity.setTaskDescriptionColorAuto()
-    }
-
-    private fun setStatusBarColor(view: View, color: Int) {
-        val statusBar = view.findViewById<View>(R.id.status_bar)
-        if (statusBar != null) {
-            if (VersionUtils.hasMarshmallow()) {
-                statusBar.setBackgroundColor(color)
-                mainActivity.setLightStatusBarAuto(color)
-            } else {
-                statusBar.setBackgroundColor(color)
-            }
-        }
-    }
-
-    fun setStatusBarColorAuto(view: View) {
-        val colorPrimary = surfaceColor()
-        // we don't want to use statusbar color because we are doing the color darkening on our own to support KitKat
-        if (VersionUtils.hasMarshmallow()) {
-            setStatusBarColor(view, colorPrimary)
-        } else {
-            setStatusBarColor(view, ColorUtil.darkenColor(colorPrimary))
-        }
     }
 }

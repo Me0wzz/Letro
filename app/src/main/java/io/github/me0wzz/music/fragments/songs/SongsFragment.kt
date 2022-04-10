@@ -25,7 +25,6 @@ import io.github.me0wzz.music.extensions.surfaceColor
 import io.github.me0wzz.music.fragments.GridStyle
 import io.github.me0wzz.music.fragments.ReloadType
 import io.github.me0wzz.music.fragments.base.AbsRecyclerViewCustomGridSizeFragment
-import io.github.me0wzz.music.helper.MusicPlayerRemote
 import io.github.me0wzz.music.helper.SortOrder.SongSortOrder
 import io.github.me0wzz.music.interfaces.ICabCallback
 import io.github.me0wzz.music.interfaces.ICabHolder
@@ -65,7 +64,7 @@ class SongsFragment : AbsRecyclerViewCustomGridSizeFragment<SongAdapter, GridLay
         get() = true
 
     override fun onShuffleClicked() {
-        libraryViewModel.getSongs().value?.let { MusicPlayerRemote.openAndShuffleQueue(it, true) }
+        libraryViewModel.shuffleSongs()
     }
 
     override fun createLayoutManager(): GridLayoutManager {

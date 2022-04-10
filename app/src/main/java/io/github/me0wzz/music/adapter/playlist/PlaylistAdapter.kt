@@ -15,13 +15,12 @@
 package io.github.me0wzz.music.adapter.playlist
 
 import android.graphics.Color
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.view.ViewCompat
+import androidx.core.view.isGone
 import androidx.core.view.setPadding
 import androidx.fragment.app.FragmentActivity
 import io.github.me0wzz.music.R
@@ -31,8 +30,6 @@ import io.github.me0wzz.music.db.PlaylistEntity
 import io.github.me0wzz.music.db.PlaylistWithSongs
 import io.github.me0wzz.music.db.toSongs
 import io.github.me0wzz.music.extensions.dipToPix
-import io.github.me0wzz.music.extensions.hide
-import io.github.me0wzz.music.extensions.show
 import io.github.me0wzz.music.glide.GlideApp
 import io.github.me0wzz.music.glide.playlistPreview.PlaylistPreview
 import io.github.me0wzz.music.helper.SortOrder.PlaylistSortOrder
@@ -80,7 +77,7 @@ class PlaylistAdapter(
     }
 
     private fun getPlaylistTitle(playlist: PlaylistEntity): String {
-        return if (TextUtils.isEmpty(playlist.playlistName)) "-" else playlist.playlistName
+        return playlist.playlistName.ifEmpty { "-" }
     }
 
     private fun getPlaylistText(playlist: PlaylistWithSongs): String {
@@ -103,12 +100,7 @@ class PlaylistAdapter(
         holder.itemView.isActivated = isChecked(playlist)
         holder.title?.text = getPlaylistTitle(playlist.playlistEntity)
         holder.text?.text = getPlaylistText(playlist)
-        val isChecked = isChecked(playlist)
-        if (isChecked) {
-            holder.menu?.hide()
-        } else {
-            holder.menu?.show()
-        }
+        holder.menu?.isGone = isChecked(playlist)
         GlideApp.with(activity)
             .load(
                 if (itemLayoutRes == R.layout.item_list) {
@@ -171,7 +163,7 @@ class PlaylistAdapter(
             if (isInQuickSelectMode) {
                 toggleChecked(layoutPosition)
             } else {
-                ViewCompat.setTransitionName(itemView, "playlist")
+                itemView.setTransitionName("playlist")
                 listener.onPlaylistClick(dataSet[layoutPosition], itemView)
             }
         }

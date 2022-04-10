@@ -27,6 +27,8 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.core.view.isVisible
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.fragments.MusicSeekSkipTouchListener
 import io.github.me0wzz.music.fragments.other.VolumeFragment
@@ -217,12 +219,13 @@ abstract class AbsPlayerControlsFragment(@LayoutRes layout: Int) : AbsMusicServi
 
     private fun hideVolumeIfAvailable() {
         if (PreferenceUtil.isVolumeVisibilityMode) {
-            childFragmentManager.beginTransaction()
-                .replace(R.id.volumeFragmentContainer, VolumeFragment()).commit()
+            childFragmentManager.commit {
+                replace<VolumeFragment>(R.id.volumeFragmentContainer)
+            }
             childFragmentManager.executePendingTransactions()
-            volumeFragment =
-                childFragmentManager.findFragmentById(R.id.volumeFragmentContainer) as? VolumeFragment
         }
+        volumeFragment =
+            childFragmentManager.findFragmentById(R.id.volumeFragmentContainer) as? VolumeFragment
     }
 
     override fun onResume() {

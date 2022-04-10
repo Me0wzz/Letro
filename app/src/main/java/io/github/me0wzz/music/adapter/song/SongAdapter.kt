@@ -21,6 +21,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
@@ -28,8 +29,6 @@ import io.github.me0wzz.music.EXTRA_ALBUM_ID
 import io.github.me0wzz.music.R
 import io.github.me0wzz.music.adapter.base.AbsMultiSelectAdapter
 import io.github.me0wzz.music.adapter.base.MediaEntryViewHolder
-import io.github.me0wzz.music.extensions.hide
-import io.github.me0wzz.music.extensions.show
 import io.github.me0wzz.music.glide.GlideApp
 import io.github.me0wzz.music.glide.RetroGlideExtension
 import io.github.me0wzz.music.glide.RetroMusicColoredTarget
@@ -96,11 +95,7 @@ open class SongAdapter(
         val song = dataSet[position]
         val isChecked = isChecked(song)
         holder.itemView.isActivated = isChecked
-        if (isChecked) {
-            holder.menu?.hide()
-        } else {
-            holder.menu?.show()
-        }
+        holder.menu?.isGone = isChecked
         holder.title?.text = getSongTitle(song)
         holder.text?.text = getSongText(song)
         holder.text2?.text = getSongText(song)

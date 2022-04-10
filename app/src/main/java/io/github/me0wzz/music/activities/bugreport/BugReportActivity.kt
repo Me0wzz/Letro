@@ -14,22 +14,18 @@
  */
 package io.github.me0wzz.music.activities.bugreport
 
-import android.app.Activity
-import android.app.Dialog
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.MenuItem
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.annotation.StringDef
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.getSystemService
+import androidx.core.net.toUri
+import androidx.lifecycle.lifecycleScope
 import io.github.me0wzz.appthemehelper.ThemeStore
 import io.github.me0wzz.appthemehelper.util.MaterialUtil
 import io.github.me0wzz.appthemehelper.util.TintHelper
@@ -47,6 +43,9 @@ import io.github.me0wzz.music.misc.DialogAsyncTask
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.eclipse.egit.github.core.Issue
 import org.eclipse.egit.github.core.client.GitHubClient
 import org.eclipse.egit.github.core.client.RequestException
@@ -82,7 +81,7 @@ open class BugReportActivity : AbsThemeActivity() {
 
         initViews()
 
-        if (TextUtils.isEmpty(title)) setTitle(R.string.report_an_issue)
+        if (title.isNullOrEmpty()) setTitle(R.string.report_an_issue)
 
         deviceInfo = DeviceInfo(this)
         binding.cardDeviceInfo.airTextDeviceInfo.text = deviceInfo.toString()
@@ -155,7 +154,7 @@ open class BugReportActivity : AbsThemeActivity() {
             copyDeviceInfoToClipBoard()
 
             val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(ISSUE_TRACKER_LINK)
+            i.data = ISSUE_TRACKER_LINK.toUri()
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(i)
         }
@@ -176,14 +175,14 @@ open class BugReportActivity : AbsThemeActivity() {
         var hasErrors = false
 
         if (binding.cardReport.optionUseAccount.isChecked) {
-            if (TextUtils.isEmpty(binding.cardReport.inputUsername.text)) {
+            if (binding.cardReport.inputUsername.text.isNullOrEmpty()) {
                 setError(binding.cardReport.inputLayoutUsername, R.string.bug_report_no_username)
                 hasErrors = true
             } else {
                 removeError(binding.cardReport.inputLayoutUsername)
             }
 
-            if (TextUtils.isEmpty(binding.cardReport.inputPassword.text)) {
+            if (binding.cardReport.inputPassword.text.isNullOrEmpty()) {
                 setError(binding.cardReport.inputLayoutPassword, R.string.bug_report_no_password)
                 hasErrors = true
             } else {
@@ -191,14 +190,14 @@ open class BugReportActivity : AbsThemeActivity() {
             }
         }
 
-        if (TextUtils.isEmpty(binding.cardReport.inputTitle.text)) {
+        if (binding.cardReport.inputTitle.text.isNullOrEmpty()) {
             setError(binding.cardReport.inputLayoutTitle, R.string.bug_report_no_title)
             hasErrors = true
         } else {
             removeError(binding.cardReport.inputLayoutTitle)
         }
 
-        if (TextUtils.isEmpty(binding.cardReport.inputDescription.text)) {
+        if (binding.cardReport.inputDescription.text.isNullOrEmpty()) {
             setError(binding.cardReport.inputLayoutDescription, R.string.bug_report_no_description)
             hasErrors = true
         } else {
@@ -228,7 +227,7 @@ open class BugReportActivity : AbsThemeActivity() {
         val report = Report(bugTitle, bugDescription, deviceInfo, extraInfo)
         val target = GithubTarget("RetroMusicPlayer", "RetroMusicPlayer")
 
-        ReportIssueAsyncTask.report(this, report, target, login)
+        reportIssue(report, target, login)
     }
 
     private fun onSaveExtraInfo() {}
@@ -240,92 +239,75 @@ open class BugReportActivity : AbsThemeActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private class ReportIssueAsyncTask private constructor(
-        activity: Activity,
-        private val report: Report,
-        private val target: GithubTarget,
-        private val login: GithubLogin
-    ) : DialogAsyncTask<Void, Void, String>(activity) {
-
-        override fun createDialog(context: Context): Dialog {
-            return AlertDialog.Builder(context).show()
+    private fun reportIssue(
+        report: Report,
+        target: GithubTarget,
+        login: GithubLogin
+    ) {
+        val client: GitHubClient = if (login.shouldUseApiToken()) {
+            GitHubClient().setOAuth2Token(login.apiToken)
+        } else {
+            GitHubClient().setCredentials(login.username, login.password)
         }
 
-        @Result
-        override fun doInBackground(vararg params: Void): String {
-            val client: GitHubClient = if (login.shouldUseApiToken()) {
-                GitHubClient().setOAuth2Token(login.apiToken)
-            } else {
-                GitHubClient().setCredentials(login.username, login.password)
-            }
+        val issue = Issue().setTitle(report.title).setBody(report.getDescription())
 
-            val issue = Issue().setTitle(report.title).setBody(report.description)
-            try {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val result = try {
                 IssueService(client).createIssue(target.username, target.repository, issue)
-                return RESULT_SUCCESS
+                RESULT_SUCCESS
             } catch (e: RequestException) {
-                return when (e.status) {
+                when (e.status) {
                     STATUS_BAD_CREDENTIALS -> {
                         if (login.shouldUseApiToken()) RESULT_INVALID_TOKEN else RESULT_BAD_CREDENTIALS
                     }
                     STATUS_ISSUES_NOT_ENABLED -> RESULT_ISSUES_NOT_ENABLED
                     else -> {
-                        e.printStackTrace()
                         RESULT_UNKNOWN
+                        throw e
                     }
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
-                return RESULT_UNKNOWN
+                RESULT_UNKNOWN
+            }
+
+            withContext(Dispatchers.Main) {
+                val activity = this@BugReportActivity
+                when (result) {
+                    RESULT_SUCCESS -> MaterialAlertDialogBuilder(activity)
+                        .setTitle(R.string.bug_report_success)
+                        .setPositiveButton(android.R.string.ok) { _, _ -> tryToFinishActivity() }
+                        .show()
+                    RESULT_BAD_CREDENTIALS -> MaterialAlertDialogBuilder(activity)
+                        .setTitle(R.string.bug_report_failed)
+                        .setMessage(R.string.bug_report_failed_wrong_credentials)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
+                    RESULT_INVALID_TOKEN -> MaterialAlertDialogBuilder(activity)
+                        .setTitle(R.string.bug_report_failed)
+                        .setMessage(R.string.bug_report_failed_invalid_token)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
+                    RESULT_ISSUES_NOT_ENABLED -> MaterialAlertDialogBuilder(activity)
+                        .setTitle(R.string.bug_report_failed)
+                        .setMessage(R.string.bug_report_failed_issues_not_available)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
+                    else -> MaterialAlertDialogBuilder(activity)
+                        .setTitle(R.string.bug_report_failed)
+                        .setMessage(R.string.bug_report_failed_unknown)
+                        .setPositiveButton(android.R.string.ok) { _, _ -> tryToFinishActivity() }
+                        .setNegativeButton(android.R.string.cancel) { _, _ -> tryToFinishActivity() }
+                        .show()
+                }
             }
         }
+    }
 
-        override fun onPostExecute(@Result result: String) {
-            super.onPostExecute(result)
-
-            val context = context ?: return
-
-            when (result) {
-                RESULT_SUCCESS -> tryToFinishActivity()
-                RESULT_BAD_CREDENTIALS -> MaterialAlertDialogBuilder(context)
-                    .setTitle(R.string.bug_report_failed)
-                    .setMessage(R.string.bug_report_failed_wrong_credentials)
-                    .setPositiveButton(android.R.string.ok, null)
-                    .show()
-                RESULT_INVALID_TOKEN -> MaterialAlertDialogBuilder(context)
-                    .setTitle(R.string.bug_report_failed)
-                    .setMessage(R.string.bug_report_failed_invalid_token)
-                    .setPositiveButton(android.R.string.ok, null).show()
-                RESULT_ISSUES_NOT_ENABLED -> MaterialAlertDialogBuilder(context)
-                    .setTitle(R.string.bug_report_failed)
-                    .setMessage(R.string.bug_report_failed_issues_not_available)
-                    .setPositiveButton(android.R.string.ok, null)
-
-                else -> MaterialAlertDialogBuilder(context)
-                    .setTitle(R.string.bug_report_failed)
-                    .setMessage(R.string.bug_report_failed_unknown)
-                    .setPositiveButton(android.R.string.ok) { _, _ -> tryToFinishActivity() }
-                    .setNegativeButton(android.R.string.cancel) { _, _ -> tryToFinishActivity() }
-            }
-        }
-
-        private fun tryToFinishActivity() {
-            val context = context
-            if (context is Activity && !context.isFinishing) {
-                context.finish()
-            }
-        }
-
-        companion object {
-
-            fun report(
-                activity: Activity,
-                report: Report,
-                target: GithubTarget,
-                login: GithubLogin
-            ) {
-                ReportIssueAsyncTask(activity, report, target, login).execute()
-            }
+    private fun tryToFinishActivity() {
+        if (!isFinishing) {
+            finish()
         }
     }
 

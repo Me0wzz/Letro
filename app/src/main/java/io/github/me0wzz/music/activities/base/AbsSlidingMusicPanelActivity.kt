@@ -25,10 +25,7 @@ import android.view.ViewTreeObserver
 import android.view.animation.PathInterpolator
 import android.widget.FrameLayout
 import androidx.core.animation.doOnEnd
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
+import androidx.core.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import io.github.me0wzz.appthemehelper.util.VersionUtils
@@ -64,7 +61,6 @@ import io.github.me0wzz.music.model.CategoryInfo
 import io.github.me0wzz.music.util.PreferenceUtil
 import io.github.me0wzz.music.util.ViewUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior.*
-import dev.chrisbanes.insetter.applyInsetter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -239,9 +235,9 @@ abstract class AbsSlidingMusicPanelActivity : AbsMusicServiceActivity() {
             override fun onGlobalLayout() {
                 binding.slidingPanel.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 if (nowPlayingScreen != Peek) {
-                    val params = binding.slidingPanel.layoutParams as ViewGroup.LayoutParams
-                    params.height = ViewGroup.LayoutParams.MATCH_PARENT
-                    binding.slidingPanel.layoutParams = params
+                    binding.slidingPanel.updateLayoutParams<ViewGroup.LayoutParams> {
+                        height = ViewGroup.LayoutParams.MATCH_PARENT
+                    }
                 }
                 when (panelState) {
                     STATE_EXPANDED -> onPanelExpanded()

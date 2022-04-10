@@ -17,6 +17,7 @@ package io.github.me0wzz.music.appshortcuts
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import io.github.me0wzz.music.appshortcuts.shortcuttype.LastAddedShortcutType
 import io.github.me0wzz.music.appshortcuts.shortcuttype.ShuffleAllShortcutType
 import io.github.me0wzz.music.appshortcuts.shortcuttype.TopTracksShortcutType
@@ -63,9 +64,10 @@ class AppShortcutLauncherActivity : Activity() {
         val intent = Intent(this, MusicService::class.java)
         intent.action = ACTION_PLAY_PLAYLIST
 
-        val bundle = Bundle()
-        bundle.putParcelable(INTENT_EXTRA_PLAYLIST, playlist)
-        bundle.putInt(INTENT_EXTRA_SHUFFLE_MODE, shuffleMode)
+        val bundle = bundleOf(
+            INTENT_EXTRA_PLAYLIST to playlist,
+            INTENT_EXTRA_SHUFFLE_MODE to shuffleMode
+        )
 
         intent.putExtras(bundle)
 
