@@ -1,3 +1,11 @@
+# Disclaimer
+#### Due to personal circumstances, I might not be able to maintain this repository properly for few months.
+
+#### If the project isn't maintained properly, try using [Phonograph_Plus](https://github.com/chr56/Phonograph_Plus)
+
+----------
+
+
 <p align="center">
   <a href="https://github.com/Me0wzz/Letro">
     <img src="app\src\main\ic_launcher-web.png" height="128">
@@ -32,7 +40,7 @@ ___
 
 ## Differences between Letro and [Retro](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
 
-* Removed Google Play Libraries [Fully Libre)
+* Removed Google Play Libraries [Fully Libre]
 * Removed Social Tabs / No-needed elements in Settings - About
 ___
 
