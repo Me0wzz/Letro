@@ -1,7 +1,6 @@
 # Note
-#### Due to personal circumstances, I might not be able to maintain this repository properly for few months.
 
-#### If the repository isn't maintained properly, try using other Players including [Auxio](https://github.com/OxygenCobalt/Auxio) and [Phonograph_Plus](https://github.com/chr56/Phonograph_Plus)
+### [Metro](https://github.com/MuntashirAkon/Metro) revived. Please use it!
 
 ----------
 
